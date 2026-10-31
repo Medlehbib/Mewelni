@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مولني | منصّة موريتانية تربط أصحاب الأفكار بالمهتمين بها</title>
+<meta name="description" content="مولني منصّة رقمية موريتانية قيد الإطلاق، تهدف إلى التعريف بالأفكار والمشاريع وربط أصحابها بالمهتمين باكتشافها ودعمها. سجّل اهتمامك الآن.">
+<meta name="theme-color" content="#102A43">
+<meta name="robots" content="index, follow">
+
+<!-- Métadonnées de partage (ajouter og:image et og:url une fois l'image et le domaine disponibles) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="مولني | عندك فكرة؟ خلّيها توصل">
+<meta property="og:description" content="منصّة موريتانية قيد الإطلاق تربط أصحاب الأفكار والمشاريع بالمهتمين بها.">
+<meta name="twitter:card" content="summary">
+
+<!-- Favicon intégré (SVG en data URI) : aucun fichier externe requis -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23102A43'/%3E%3Cpath d='M16 46V20l16 18 16-18v26' fill='none' stroke='%2313B981' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================
+   1. Variables & base
+   ========================================================== */
+:root{
+  --navy:#102A43;
+  --navy-2:#1B3A57;
+  --green:#13B981;
+  --green-dark:#0E9468;
+  --gray:#F5F7FA;
+  --white:#FFFFFF;
+  --text:#243B53;
+  --muted:#52667A;
+  --border:#E1E7EE;
+  --radius:20px;
+  --shadow:0 10px 30px rgba(16,42,67,.08);
+  --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  font-family:'Tajawal','Segoe UI',Tahoma,Arial,sans-serif;
+  color:var(--text);background:var(--white);
+  line-height:1.8;font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:8px}
+.container{width:min(100% - 40px,var(--max));margin-inline:auto}
+.skip-link{
+  position:absolute;top:-60px;inset-inline-start:12px;background:var(--navy);color:#fff;
+  padding:10px 16px;border-radius:10px;z-index:200;transition:top .2s;
+}
+.skip-link:focus{top:12px}
+section{padding:88px 0}
+.section-head{max-width:720px;margin:0 auto 48px;text-align:center}
+.eyebrow{
+  display:inline-block;background:rgba(19,185,129,.12);color:var(--green-dark);
+  font-weight:700;font-size:.9rem;padding:4px 16px;border-radius:999px;margin-bottom:14px;
+}
+h1,h2,h3{color:var(--navy);line-height:1.35}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:800;margin-bottom:14px}
+h3{font-size:1.25rem;font-weight:700;margin-bottom:8px}
+.lead{color:var(--muted);font-size:1.08rem}
+.bg-gray{background:var(--gray)}
+
+/* Boutons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:12px 28px;border-radius:14px;border:2px solid transparent;
+  font-weight:700;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s,color .2s;
+}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(19,185,129,.28)}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-2px)}
+.btn-outline{border-color:rgba(255,255,255,.55);color:#fff;background:transparent}
+.btn-outline:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:var(--navy-2)}
+.btn[disabled]{opacity:.65;cursor:not-allowed;transform:none}
+
+/* ==========================================================
+   2. Navigation
+   ========================================================== */
+.site-header{
+  position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.4rem;color:var(--navy)}
+.logo-mark{width:40px;height:40px;border-radius:12px;background:var(--navy);display:grid;place-items:center}
+.logo small{color:var(--green-dark);font-size:.95rem;font-weight:700}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{padding:8px 12px;border-radius:10px;font-weight:500;color:var(--text);transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--gray);color:var(--navy)}
+.nav-links a.active{color:var(--green-dark);font-weight:700}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.nav-cta .btn{min-height:42px;padding:8px 20px}
+.menu-toggle{
+  display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--border);
+  background:#fff;cursor:pointer;align-items:center;justify-content:center;
+}
+
+/* ==========================================================
+   3. Hero
+   ========================================================== */
+.hero{
+  background:linear-gradient(160deg,var(--navy) 0%,#17395A 100%);
+  color:#fff;padding:96px 0 110px;position:relative;overflow:hidden;
+}
+.hero::before,.hero::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(19,185,129,.28),transparent 70%);
+}
+.hero::before{width:520px;height:520px;top:-180px;inset-inline-start:-120px}
+.hero::after{width:420px;height:420px;bottom:-200px;inset-inline-end:-100px;opacity:.7}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);padding:6px 16px;border-radius:999px;font-size:.92rem;margin-bottom:20px;
+}
+.badge i{width:9px;height:9px;border-radius:50%;background:var(--green);display:inline-block}
+.hero h1{color:#fff;font-size:clamp(2.3rem,5.6vw,3.8rem);font-weight:800;margin-bottom:18px}
+.hero h1 span{color:var(--green)}
+.hero p{color:#D5DEE8;font-size:1.15rem;max-width:560px;margin-bottom:32px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-visual{display:flex;justify-content:center}
+.hero-card{
+  width:min(100%,380px);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  border-radius:28px;padding:28px;backdrop-filter:blur(6px);
+}
+.flow-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.1);border-radius:16px;padding:14px 16px}
+.flow-item+.flow-link{height:22px;width:2px;background:rgba(19,185,129,.6);margin:0 28px}
+.flow-link+.flow-item{margin-top:0}
+.flow-ic{width:44px;height:44px;border-radius:12px;background:var(--green);display:grid;place-items:center;flex:none}
+.flow-item b{display:block;font-size:1.02rem}
+.flow-item span{font-size:.88rem;color:#CBD6E2}
+
+/* ==========================================================
+   4. Cartes génériques
+   ========================================================== */
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:30px;
+  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(16,42,67,.12)}
+.icon-box{
+  width:56px;height:56px;border-radius:16px;background:rgba(19,185,129,.12);
+  display:grid;place-items:center;margin-bottom:18px;color:var(--green-dark)
+}
+.card p{color:var(--muted)}
+
+/* Problème / solution */
+.ps-card.problem{border-top:5px solid #E2735F}
+.ps-card.solution{border-top:5px solid var(--green)}
+.ps-card ul{margin-top:14px;display:grid;gap:10px}
+.ps-card li{display:flex;gap:10px;color:var(--muted)}
+.ps-card li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;margin-top:12px;background:var(--green)}
+.ps-card.problem li::before{background:#E2735F}
+
+/* Étapes */
+.step{position:relative}
+.step-num{
+  position:absolute;top:22px;inset-inline-end:24px;font-size:2.6rem;font-weight:800;
+  color:rgba(16,42,67,.08);line-height:1;
+}
+
+/* Exemples */
+.example{position:relative;padding-top:44px}
+.example-tag{
+  position:absolute;top:16px;inset-inline-start:16px;background:#FFF4D6;color:#8A6100;
+  border:1px solid #F2D98B;font-size:.82rem;font-weight:700;padding:2px 12px;border-radius:999px;
+}
+.example .cat{color:var(--green-dark);font-weight:700;font-size:.92rem}
+
+/* Confiance */
+.trust-card{display:flex;gap:18px;align-items:flex-start}
+.trust-card .icon-box{margin:0;flex:none}
+
+/* Public cible */
+.audience-card{text-align:center}
+.audience-card .icon-box{margin-inline:auto}
+
+/* ==========================================================
+   5. Formulaire
+   ========================================================== */
+.signup-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.signup-info{background:var(--navy);color:#fff;border-radius:var(--radius);padding:36px}
+.signup-info h2{color:#fff;font-size:1.8rem}
+.signup-info p{color:#D5DEE8}
+.signup-info ul{margin-top:20px;display:grid;gap:12px}
+.signup-info li{display:flex;gap:10px;color:#D5DEE8;font-size:.98rem}
+.signup-info li svg{flex:none;margin-top:6px}
+form.signup{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:700;color:var(--navy);margin-bottom:6px;font-size:.98rem}
+.field .opt{font-weight:400;color:var(--muted);font-size:.85rem}
+.req{color:#C0392B}
+.input{
+  width:100%;min-height:50px;padding:10px 14px;border:1.5px solid var(--border);border-radius:12px;
+  background:var(--gray);transition:border-color .2s,background .2s;
+}
+textarea.input{min-height:120px;resize:vertical}
+.input:focus{outline:none;border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(19,185,129,.15)}
+.input[aria-invalid="true"]{border-color:#C0392B;background:#FFF6F5}
+.error{color:#B3261E;font-size:.88rem;margin-top:5px;min-height:0}
+.error:empty{display:none}
+.consent{display:flex;gap:12px;align-items:flex-start;margin:6px 0 4px}
+.consent input{width:22px;height:22px;margin-top:5px;accent-color:var(--green);flex:none}
+.consent label{font-weight:400;font-size:.95rem;color:var(--text)}
+.link-btn{background:none;border:0;padding:0;color:var(--green-dark);text-decoration:underline;cursor:pointer;font-weight:700}
+.hp{position:absolute;inset-inline-start:-9999px;width:1px;height:1px;overflow:hidden}
+.form-status{margin-top:18px;padding:14px 16px;border-radius:12px;font-size:.98rem;display:none}
+.form-status.show{display:block}
+.form-status.ok{background:#E6F8F1;color:#0B6B4B;border:1px solid #A8E5CE}
+.form-status.err{background:#FDECEA;color:#8F1D14;border:1px solid #F3B7B0}
+.privacy-note{font-size:.85rem;color:var(--muted);margin-top:12px}
+
+/* ==========================================================
+   6. Équipe
+   ========================================================== */
+.team-card{text-align:center}
+.avatar{
+  width:84px;height:84px;border-radius:50%;margin:0 auto 14px;background:var(--navy);color:#fff;
+  display:grid;place-items:center;font-size:1.8rem;font-weight:800;
+}
+.team-role{color:var(--green-dark);font-weight:700}
+.team-empty{
+  max-width:640px;margin:0 auto;text-align:center;background:#fff;border:2px dashed var(--border);
+  border-radius:var(--radius);padding:36px;color:var(--muted)
+}
+
+/* ==========================================================
+   7. Footer & modal
+   ========================================================== */
+footer{background:var(--navy);color:#C9D5E2;padding:64px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.14)}
+footer .logo{color:#fff;margin-bottom:14px}
+footer h3{color:#fff;font-size:1.05rem;margin-bottom:14px}
+footer li{margin-bottom:8px}
+footer a:hover,footer .link-btn:hover{color:var(--green)}
+footer .link-btn{color:#C9D5E2;font-weight:500}
+.copy{padding-top:22px;text-align:center;font-size:.92rem}
+
+dialog{
+  border:0;border-radius:24px;max-width:min(680px,calc(100% - 32px));width:100%;padding:0;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);margin:auto;
+}
+dialog::backdrop{background:rgba(16,42,67,.6)}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:20px 26px;border-bottom:1px solid var(--border)}
+.modal-body{padding:22px 26px 26px;max-height:70vh;overflow:auto}
+.modal-body h3{margin-top:18px;font-size:1.08rem}
+.modal-body p,.modal-body li{color:var(--muted);font-size:.98rem}
+.modal-body ul{list-style:disc;padding-inline-start:22px}
+.close-x{width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:1.3rem;line-height:1}
+
+/* Animations discrètes */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .card,.btn{transition:none}
+}
+
+/* ==========================================================
+   8. Responsive
+   ========================================================== */
+@media (max-width:980px){
+  .hero-inner,.signup-wrap{grid-template-columns:1fr}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .menu-toggle{display:inline-flex}
+  .nav-cta .btn{display:none}
+  .nav-links{
+    position:absolute;top:72px;inset-inline:0;background:#fff;flex-direction:column;align-items:stretch;
+    padding:14px 20px 22px;border-bottom:1px solid var(--border);box-shadow:0 20px 30px rgba(16,42,67,.1);
+    display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 12px;font-size:1.05rem}
+  .nav-links .mobile-cta{display:flex;margin-top:8px}
+}
+.mobile-cta{display:none}
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:64px 0}
+  .grid-2,.grid-3,.grid-4,.row,.footer-grid{grid-template-columns:1fr}
+  .hero{padding:64px 0 76px}
+  .hero-actions .btn{width:100%}
+  form.signup,.signup-info{padding:24px}
+}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+
+<!-- ============ 1. شريط التنقل ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="#home" class="logo" aria-label="مولني - الصفحة الرئيسية">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#13B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48V18l20 22 20-22v30"/></svg>
+      </span>
+      <span>مولني <small>Meweli</small></span>
+    </a>
+
+    <nav aria-label="التنقل الرئيسي">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#problem">الفكرة</a></li>
+        <li><a href="#how">كيف تعمل</a></li>
+        <li><a href="#audience">لمن المنصّة</a></li>
+        <li><a href="#examples">أمثلة</a></li>
+        <li><a href="#trust">الثقة</a></li>
+        <li><a href="#team">الفريق</a></li>
+        <li class="mobile-cta"><a href="#signup" class="btn btn-primary" style="width:100%">سجّل اهتمامك</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#signup" class="btn btn-primary">سجّل اهتمامك</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navLinks">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#102A43" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ 2. Hero ============ -->
+<section class="hero" id="home" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+    <div>
+      <span class="badge"><i></i> المشروع قيد الإطلاق والتحقق من الفكرة</span>
+      <h1 id="hero-title">عندك فكرة؟ <span>خلّيها توصل</span></h1>
+      <p>مولني منصّة رقمية موريتانية نعمل على إطلاقها، هدفها ربط أصحاب الأفكار والمشاريع بالأشخاص المهتمين باكتشافها ومرافقتها. سجّل اهتمامك وكن من أوائل المتابعين لرحلتنا.</p>
+      <div class="hero-actions">
+        <a href="#signup" class="btn btn-primary" data-profile="project_owner">أنا صاحب مشروع</a>
+        <a href="#signup" class="btn btn-outline" data-profile="interested">أريد اكتشاف المشاريع</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card">
+        <div class="flow-item">
+          <span class="flow-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></span>
+          <div><b>فكرة</b><span>صاحب الفكرة يعرضها</span></div>
+        </div>
+        <div class="flow-link"></div>
+        <div class="flow-item">
+          <span class="flow-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+          <div><b>اكتشاف</b><span>المهتمون يطّلعون عليها</span></div>
+        </div>
+        <div class="flow-link"></div>
+        <div class="flow-item">
+          <span class="flow-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+          <div><b>تواصل</b><span>إمكانية الحوار والتعاون</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. المشكلة والحل ============ -->
+<section id="problem" aria-labelledby="problem-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">لماذا مولني؟</span>
+      <h2 id="problem-title">أفكار كثيرة تبقى حبيسة أصحابها</h2>
+      <p class="lead">كثير من الأفكار الجيدة لا تجد طريقها إلى من يمكنه الاهتمام بها أو دعمها، لا لضعفها بل لصعوبة التعريف بها.</p>
+    </div>
+    <div class="grid grid-2">
+      <article class="card ps-card problem reveal">
+        <h3>التحدّي</h3>
+        <p>يجد صاحب الفكرة أو المشروع صعوبة في إيصال فكرته إلى الأشخاص المناسبين.</p>
+        <ul>
+          <li>قنوات محدودة للتعريف بالأفكار والمشاريع الناشئة.</li>
+          <li>صعوبة الوصول إلى مهتمين وأصحاب خبرة قد يفيدون المشروع.</li>
+          <li>غياب مساحة واضحة تجمع الطرفين في مكان واحد.</li>
+        </ul>
+      </article>
+      <article class="card ps-card solution reveal">
+        <h3>حلّ مولني</h3>
+        <p>منصّة تمنح الأفكار مساحة للظهور، وتتيح للمهتمين اكتشافها والتواصل مع أصحابها.</p>
+        <ul>
+          <li>مكان واحد لعرض الفكرة بوضوح.</li>
+          <li>اكتشاف أسهل للمشاريع من المهتمين بها.</li>
+          <li>إمكانية فتح باب الحوار والتعاون بين الطرفين.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. كيف يعمل مولني ============ -->
+<section id="how" class="bg-gray" aria-labelledby="how-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">ثلاث خطوات</span>
+      <h2 id="how-title">كيف يعمل مولني؟</h2>
+      <p class="lead">مسار بسيط يبدأ بفكرة وينتهي بإمكانية تواصل وتعاون.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card step reveal">
+        <span class="step-num" aria-hidden="true">1</span>
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></div>
+        <h3>قدّم فكرتك</h3>
+        <p>يعرّف صاحب الفكرة أو المشروع بفكرته بشكل واضح ومختصر.</p>
+      </article>
+      <article class="card step reveal">
+        <span class="step-num" aria-hidden="true">2</span>
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+        <h3>يكتشفها المهتمّون</h3>
+        <p>يطّلع الأشخاص المهتمون بالمشاريع على الأفكار المعروضة ويتعرّفون عليها.</p>
+      </article>
+      <article class="card step reveal">
+        <span class="step-num" aria-hidden="true">3</span>
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+        <h3>تواصل وتعاون</h3>
+        <p>تُفتح إمكانية التواصل بين الطرفين، وما يتبعها من تعاون يظلّ باتفاقهما.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. الجمهور المستهدف ============ -->
+<section id="audience" aria-labelledby="aud-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">لمن مولني؟</span>
+      <h2 id="aud-title">منصّة تجمع كل المهتمين بالأفكار</h2>
+    </div>
+    <div class="grid grid-4">
+      <article class="card audience-card reveal">
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></div>
+        <h3>أصحاب الأفكار</h3>
+        <p>من لديهم فكرة ويبحثون عن مساحة للتعريف بها.</p>
+      </article>
+      <article class="card audience-card reveal">
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+        <h3>رواد الأعمال</h3>
+        <p>من يطلقون مشاريعهم أو يطوّرونها ويرغبون في توسيع حضورهم.</p>
+      </article>
+      <article class="card audience-card reveal">
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+        <h3>المهتمون بالمشاريع</h3>
+        <p>من يحبون اكتشاف المبادرات الجديدة ومتابعتها.</p>
+      </article>
+      <article class="card audience-card reveal">
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>أصحاب الخبرة والدعم</h3>
+        <p>من يستطيعون تقديم خبرة أو مرافقة أو دعم للمشاريع.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. أمثلة المشاريع ============ -->
+<section id="examples" class="bg-gray" aria-labelledby="ex-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">تصوّر لما يمكن أن تكون عليه المنصّة</span>
+      <h2 id="ex-title">أمثلة على أنواع المشاريع</h2>
+      <p class="lead">هذه البطاقات تخيّلية وهدفها شرح الفكرة فقط، وليست مشاريع حقيقية أو أرقامًا فعلية.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card example reveal">
+        <span class="example-tag">مثال توضيحي</span>
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+        <span class="cat">مشروع تعليمي</span>
+        <h3>مبادرة دعم تعليمي</h3>
+        <p>فكرة لمساعدة التلاميذ على التعلّم بوسائل مبسّطة، ويمكن أن تهمّ المعلمين والمهتمين بالتعليم.</p>
+      </article>
+      <article class="card example reveal">
+        <span class="example-tag">مثال توضيحي</span>
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <span class="cat">مشروع تقني</span>
+        <h3>تطبيق لخدمة محلية</h3>
+        <p>فكرة تقنية تسهّل خدمة يومية، وقد تحتاج إلى مطوّرين أو مختصين في التصميم.</p>
+      </article>
+      <article class="card example reveal">
+        <span class="example-tag">مثال توضيحي</span>
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <span class="cat">مشروع اجتماعي</span>
+        <h3>مبادرة تضامن مجتمعي</h3>
+        <p>فكرة تخدم فئة من المجتمع، وقد تهمّ المتطوعين والمهتمين بالعمل الاجتماعي.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. الثقة والشفافية ============ -->
+<section id="trust" aria-labelledby="trust-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">نلتزم بالوضوح</span>
+      <h2 id="trust-title">الثقة والشفافية</h2>
+      <p class="lead">نريد بناء منصّة يثق بها الناس منذ البداية.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card trust-card reveal">
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg></div>
+        <div><h3>رؤيتنا</h3><p>أن تجد كل فكرة جيدة طريقها إلى من يهتم بها، وأن نسهم في تنشيط ثقافة المبادرة في موريتانيا.</p></div>
+      </article>
+      <article class="card trust-card reveal">
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <div><h3>احترام الخصوصية</h3><p>نجمع الحد الأدنى من البيانات الضرورية، ولا نستخدمها إلا للتواصل بشأن المشروع.</p></div>
+      </article>
+      <article class="card trust-card reveal">
+        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div><h3>لا وعود غير مضمونة</h3><p>مولني ما زال في مرحلة الإطلاق، فلا نَعِد بتمويل أو نتائج أو شراكات لا يمكننا ضمانها.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. التسجيل المسبق ============ -->
+<section id="signup" class="bg-gray" aria-labelledby="signup-title">
+  <div class="container signup-wrap">
+    <div class="signup-info reveal">
+      <h2 id="signup-title">سجّل اهتمامك</h2>
+      <p>التسجيل المسبق يساعدنا على قياس الاهتمام بالفكرة وإبلاغك بتطورات المشروع. لا يتطلب سوى اسمك، وبقية الحقول اختيارية.</p>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>الاسم هو الحقل الوحيد الإلزامي.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>التسجيل لا يعني التزامًا من أي طرف.</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>لا نطلب أي مبالغ مالية.</li>
+      </ul>
+    </div>
+
+    <form class="signup reveal" id="signupForm" novalidate aria-describedby="formStatus">
+      <div class="field">
+        <label for="fullName">الاسم الكامل <span class="req" aria-hidden="true">*</span><span class="sr-only"></span></label>
+        <input class="input" type="text" id="fullName" name="full_name" autocomplete="name" required maxlength="100" aria-describedby="err-fullName">
+        <div class="error" id="err-fullName" role="alert"></div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="email">البريد الإلكتروني <span class="opt">(اختياري)</span></label>
+          <input class="input" type="email" id="email" name="email" autocomplete="email" dir="ltr" maxlength="150" style="text-align:right" aria-describedby="err-email">
+          <div class="error" id="err-email" role="alert"></div>
+        </div>
+        <div class="field">
+          <label for="phone">رقم الهاتف <span class="opt">(اختياري)</span></label>
+          <input class="input" type="tel" id="phone" name="phone" autocomplete="tel" dir="ltr" maxlength="25" style="text-align:right" aria-describedby="err-phone">
+          <div class="error" id="err-phone" role="alert"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="city">المدينة أو الولاية <span class="opt">(اختياري)</span></label>
+          <input class="input" type="text" id="city" name="city" autocomplete="address-level2" maxlength="80">
+        </div>
+        <div class="field">
+          <label for="profile">الصفة <span class="opt">(اختياري)</span></label>
+          <select class="input" id="profile" name="profile">
+            <option value="">اختر الصفة</option>
+            <option value="idea_holder">صاحب فكرة</option>
+            <option value="project_owner">صاحب مشروع</option>
+            <option value="entrepreneur">رائد أعمال</option>
+            <option value="interested">مهتم بالمشاريع</option>
+            <option value="investor_supporter">مستثمر أو داعم محتمل</option>
+            <option value="expert">خبير أو مهتم بالتعاون</option>
+            <option value="other">أخرى</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">وصف الفكرة أو نوع الاهتمام <span class="opt">(اختياري)</span></label>
+        <textarea class="input" id="message" name="message" maxlength="1000" placeholder="اكتب بإيجاز، ولا تُدخل معلومات حساسة أو سرية."></textarea>
+      </div>
+
+      <!-- Champ piège anti-spam : doit rester vide -->
+      <div class="hp" aria-hidden="true">
+        <label for="website">لا تملأ هذا الحقل</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="field" style="margin-bottom:8px">
+        <div class="consent">
+          <input type="checkbox" id="consent" name="consent" required aria-describedby="err-consent">
+          <label for="consent">أوافق على <button type="button" class="link-btn" data-open-privacy>سياسة الخصوصية</button> وعلى استخدام بياناتي للتواصل معي بشأن مشروع مولني. <span class="req" aria-hidden="true">*</span></label>
+        </div>
+        <div class="error" id="err-consent" role="alert"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">إرسال التسجيل</button>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+      <p class="privacy-note">الحقول المعلَّمة بنجمة (*) إلزامية.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ 9. الفريق ============ -->
+<section id="team" aria-labelledby="team-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">من نحن</span>
+      <h2 id="team-title">الفريق</h2>
+    </div>
+    <!-- Rempli par le JS à partir du tableau TEAM (voir la section CONFIG) -->
+    <div id="teamMount"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 10. التذييل ============ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#home" class="logo" aria-label="مولني">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#13B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48V18l20 22 20-22v30"/></svg>
+          </span>
+          <span>مولني</span>
+        </a>
+        <p>منصّة رقمية موريتانية قيد الإطلاق، تربط أصحاب الأفكار والمشاريع بالمهتمين باكتشافها ومرافقتها.</p>
+      </div>
+      <div>
+        <h3>روابط سريعة</h3>
+        <ul>
+          <li><a href="#problem">الفكرة</a></li>
+          <li><a href="#how">كيف تعمل</a></li>
+          <li><a href="#audience">لمن المنصّة</a></li>
+          <li><a href="#examples">أمثلة</a></li>
+          <li><a href="#signup">التسجيل المسبق</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>معلومات</h3>
+        <ul>
+          <li><a href="#trust">الثقة والشفافية</a></li>
+          <li><a href="#team">الفريق</a></li>
+          <li><button type="button" class="link-btn" data-open-privacy>سياسة الخصوصية</button></li>
+          <li id="contactItem" hidden></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 مولني. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<!-- نافذة سياسة الخصوصية -->
+<dialog id="privacyDialog" aria-labelledby="privacyTitle">
+  <div class="modal-head">
+    <h2 id="privacyTitle" style="font-size:1.3rem;margin:0">سياسة الخصوصية</h2>
+    <button class="close-x" type="button" id="closePrivacy" aria-label="إغلاق">&times;</button>
+  </div>
+  <div class="modal-body">
+    <p>آخر تحديث: 2026. تشرح هذه السياسة كيف نتعامل مع البيانات التي ترسلها عبر نموذج التسجيل المسبق.</p>
+
+    <h3>البيانات التي نجمعها</h3>
+    <ul>
+      <li>الاسم الكامل (إلزامي).</li>
+      <li>البريد الإلكتروني ورقم الهاتف والمدينة أو الولاية والصفة ووصف الاهتمام (اختيارية).</li>
+    </ul>
+
+    <h3>لماذا نجمعها</h3>
+    <p>للتواصل معك بشأن مشروع مولني وإبلاغك بتطوراته، ولتقدير مستوى الاهتمام بالفكرة في مرحلة التحقق منها.</p>
+
+    <h3>كيف تُعالَج</h3>
+    <p>تُرسل البيانات عبر النموذج إلى خدمة جمع البيانات التي يختارها فريق المشروع، وتُحفظ لدى هذه الخدمة. يتولى الفريق تحديد اسم الخدمة ومكان التخزين قبل الإطلاق العلني. لا ندرج في الموقع أي أدوات تتبّع أو إعلانات.</p>
+
+    <h3>المشاركة والاحتفاظ</h3>
+    <p>لا نبيع بياناتك ولا نشاركها لأغراض تسويقية. نحتفظ بها المدة اللازمة للغرض المذكور فقط.</p>
+
+    <h3>حقوقك</h3>
+    <p>يمكنك طلب الاطلاع على بياناتك أو تصحيحها أو حذفها، وسحب موافقتك في أي وقت، عبر وسيلة الاتصال الرسمية التي يعلنها المشروع.</p>
+
+    <h3>نصيحة</h3>
+    <p>لا تُدخل في وصف الفكرة معلومات سرية أو حساسة، فالموقع في مرحلته الأولى لا يوفّر آلية لحماية الأسرار التجارية.</p>
+  </div>
+</dialog>
+
+<script>
+/* ==========================================================
+   CONFIG — à modifier avant la mise en ligne
+   ========================================================== */
+const CONFIG = {
+  // URL du service qui reçoit les inscriptions (ex. Formspree : https://formspree.io/f/xxxxxxx).
+  // Tant que cette valeur est vide, AUCUNE inscription n'est enregistrée
+  // et le formulaire affiche un message d'indisponibilité (jamais de faux succès).
+  FORM_ENDPOINT: "",
+
+  // Contact officiel : laisser vide tant qu'il n'existe pas (rien ne s'affiche).
+  // Exemple : { label: "البريد الإلكتروني", href: "mailto:contact@exemple.com", text: "contact@exemple.com" }
+  CONTACT: null,
+
+  // Membres de l'équipe, à renseigner depuis le cahier des charges.
+  // Exemple : { name: "الاسم", role: "الدور" }
+  TEAM: []
+};
+
+/* ==========================================================
+   Utilitaires
+   ========================================================== */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+/* ---------- Menu mobile ---------- */
+const menuToggle = $('#menuToggle');
+const navLinks = $('#navLinks');
+function setMenu(open){
+  navLinks.classList.toggle('open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+}
+menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+$$('#navLinks a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+/* ---------- Lien actif au défilement ---------- */
+const sections = $$('main section[id]');
+const links = $$('#navLinks a[href^="#"]');
+if ('IntersectionObserver' in window){
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting){
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + en.target.id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => spy.observe(s));
+
+  /* Apparition douce */
+  const rev = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('visible'); rev.unobserve(en.target); } });
+  }, { threshold: .12 });
+  $$('.reveal').forEach(el => rev.observe(el));
+} else {
+  $$('.reveal').forEach(el => el.classList.add('visible'));
+}
+
+/* ---------- Boutons du hero : pré-sélection du profil ---------- */
+$$('[data-profile]').forEach(btn => {
+  btn.addEventListener('click', () => { $('#profile').value = btn.dataset.profile; });
+});
+
+/* ---------- Politique de confidentialité ---------- */
+const dlg = $('#privacyDialog');
+$$('[data-open-privacy]').forEach(b => b.addEventListener('click', () => {
+  if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+}));
+$('#closePrivacy').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+/* ---------- Équipe (aucun membre inventé) ---------- */
+(function renderTeam(){
+  const mount = $('#teamMount');
+  if (!CONFIG.TEAM.length){
+    mount.innerHTML = '<div class="team-empty reveal visible"><p>سيتم الإعلان عن أعضاء الفريق وأدوارهم قريبًا.</p></div>';
+    return;
+  }
+  const grid = document.createElement('div');
+  grid.className = 'grid grid-3';
+  CONFIG.TEAM.forEach(m => {
+    const card = document.createElement('article');
+    card.className = 'card team-card';
+    const av = document.createElement('div'); av.className = 'avatar'; av.setAttribute('aria-hidden', 'true');
+    av.textContent = (m.name || '?').trim().charAt(0);
+    const h = document.createElement('h3'); h.textContent = m.name;
+    const r = document.createElement('p'); r.className = 'team-role'; r.textContent = m.role;
+    card.append(av, h, r); grid.append(card);
+  });
+  mount.append(grid);
+})();
+
+/* ---------- Contact officiel (affiché seulement s'il existe) ---------- */
+(function renderContact(){
+  if (!CONFIG.CONTACT) return;
+  const li = $('#contactItem');
+  const a = document.createElement('a');
+  a.href = CONFIG.CONTACT.href;
+  a.textContent = CONFIG.CONTACT.label + ': ' + CONFIG.CONTACT.text;
+  li.append(a); li.hidden = false;
+})();
+
+/* ==========================================================
+   Formulaire de préinscription
+   ========================================================== */
+const form = $('#signupForm');
+const submitBtn = $('#submitBtn');
+const statusBox = $('#formStatus');
+let submitting = false;
+
+function setError(id, msg){
+  const input = $('#' + id);
+  const box = $('#err-' + id);
+  box.textContent = msg || '';
+  if (input) input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+}
+function showStatus(type, msg){
+  statusBox.className = 'form-status show ' + type;
+  statusBox.textContent = msg;
+}
+function validate(){
+  let ok = true;
+  const name = $('#fullName').value.trim();
+  const email = $('#email').value.trim();
+  const phone = $('#phone').value.trim();
+
+  if (name.length < 2){ setError('fullName', 'يرجى إدخال اسمك الكامل (حرفان على الأقل).'); ok = false; }
+  else setError('fullName', '');
+
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
+    setError('email', 'صيغة البريد الإلكتروني غير صحيحة، مثال: name@example.com'); ok = false;
+  } else setError('email', '');
+
+  const digits = phone.replace(/\D/g, '');
+  if (phone && (!/^[+\d\s()-]+$/.test(phone) || digits.length < 8 || digits.length > 15)){
+    setError('phone', 'رقم الهاتف غير صحيح، يرجى إدخال من 8 إلى 15 رقمًا.'); ok = false;
+  } else setError('phone', '');
+
+  if (!$('#consent').checked){
+    setError('consent', 'يجب الموافقة على سياسة الخصوصية للمتابعة.'); ok = false;
+  } else setError('consent', '');
+
+  if (!ok){
+    const firstBad = $('[aria-invalid="true"]', form);
+    if (firstBad) firstBad.focus();
+  }
+  return ok;
+}
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (submitting) return;                       // empêche les doubles soumissions
+  statusBox.className = 'form-status';
+  if (!validate()) return;
+
+  // Anti-spam : un robot remplit le champ caché. On ignore silencieusement.
+  if ($('#website').value) return;
+
+  // Aucune destination configurée : on ne prétend JAMAIS avoir enregistré.
+  if (!CONFIG.FORM_ENDPOINT){
+    showStatus('err', 'خدمة التسجيل غير مفعّلة بعد، ولم يتم حفظ بياناتك. يرجى المحاولة لاحقًا.');
+    return;
+  }
+
+  submitting = true;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'جارٍ الإرسال...';
+
+  const payload = {
+    full_name: $('#fullName').value.trim(),
+    email: $('#email').value.trim(),
+    phone: $('#phone').value.trim(),
+    city: $('#city').value.trim(),
+    profile: $('#profile').value,
+    message: $('#message').value.trim(),
+    consent: true,
+    submitted_at: new Date().toISOString()
+  };
+
+  try{
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
+    const res = await fetch(CONFIG.FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+
+    if (!res.ok) throw new Error('HTTP ' + res.status);   // succès uniquement si le service confirme
+
+    form.reset();
+    showStatus('ok', 'تم تسجيل اهتمامك بنجاح. شكرًا لك، وسنتواصل معك عند توفر مستجدات.');
+  } catch (err){
+    showStatus('err', 'تعذّر إرسال التسجيل ولم يتم حفظ بياناتك. تحقق من اتصالك بالإنترنت وأعد المحاولة.');
+  } finally {
+    submitting = false;
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'إرسال التسجيل';
+  }
+});
+
+/* Effacer l'erreur dès que l'utilisateur corrige */
+['fullName','email','phone'].forEach(id => $('#' + id).addEventListener('input', () => setError(id, '')));
+$('#consent').addEventListener('change', () => setError('consent', ''));
+</script>
+</body>
+</html>
