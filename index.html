@@ -3,902 +3,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>مولني | منصّة موريتانية تربط أصحاب الأفكار بالمهتمين بها</title>
-<meta name="description" content="مولني منصّة رقمية موريتانية قيد الإطلاق، تهدف إلى التعريف بالأفكار والمشاريع وربط أصحابها بالمهتمين باكتشافها ودعمها. سجّل اهتمامك الآن.">
+<title>مولني | Meweli</title>
+<meta name="description" content="مولني Meweli: منصة موريتانية تربط أصحاب المشاريع بالممولين. Meweli connects project owners with funders in Mauritania.">
 <meta name="theme-color" content="#102A43">
-<meta name="robots" content="index, follow">
-
-<!-- Métadonnées de partage (ajouter og:image et og:url une fois l'image et le domaine disponibles) -->
 <meta property="og:type" content="website">
-<meta property="og:locale" content="ar_AR">
-<meta property="og:title" content="مولني | عندك فكرة؟ خلّيها توصل">
-<meta property="og:description" content="منصّة موريتانية قيد الإطلاق تربط أصحاب الأفكار والمشاريع بالمهتمين بها.">
-<meta name="twitter:card" content="summary">
-
-<!-- Favicon intégré (SVG en data URI) : aucun fichier externe requis -->
+<meta property="og:title" content="مولني | Meweli">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23102A43'/%3E%3Cpath d='M16 46V20l16 18 16-18v26' fill='none' stroke='%2313B981' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-
 <style>
-/* ==========================================================
-   1. Variables & base
-   ========================================================== */
-:root{
-  --navy:#102A43;
-  --navy-2:#1B3A57;
-  --green:#13B981;
-  --green-dark:#0E9468;
-  --gray:#F5F7FA;
-  --white:#FFFFFF;
-  --text:#243B53;
-  --muted:#52667A;
-  --border:#E1E7EE;
-  --radius:20px;
-  --shadow:0 10px 30px rgba(16,42,67,.08);
-  --max:1160px;
-}
+:root{--navy:#102A43;--green:#13B981;--gd:#0E9468;--gray:#F5F7FA;--text:#243B53;--muted:#52667A;--bd:#E1E7EE;--r:20px;--sh:0 10px 30px rgba(16,42,67,.08)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{
-  font-family:'Tajawal','Segoe UI',Tahoma,Arial,sans-serif;
-  color:var(--text);background:var(--white);
-  line-height:1.8;font-size:17px;
-  -webkit-font-smoothing:antialiased;
-}
-img,svg{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-button,input,select,textarea{font:inherit;color:inherit}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal','Segoe UI',system-ui,Arial,sans-serif;color:var(--text);line-height:1.8;font-size:17px;background:#fff}
+a{color:inherit;text-decoration:none}ul{list-style:none}button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:8px}
-.container{width:min(100% - 40px,var(--max));margin-inline:auto}
-.skip-link{
-  position:absolute;top:-60px;inset-inline-start:12px;background:var(--navy);color:#fff;
-  padding:10px 16px;border-radius:10px;z-index:200;transition:top .2s;
-}
-.skip-link:focus{top:12px}
-section{padding:88px 0}
-.section-head{max-width:720px;margin:0 auto 48px;text-align:center}
-.eyebrow{
-  display:inline-block;background:rgba(19,185,129,.12);color:var(--green-dark);
-  font-weight:700;font-size:.9rem;padding:4px 16px;border-radius:999px;margin-bottom:14px;
-}
+.c{width:min(100% - 40px,1160px);margin-inline:auto}
+section{padding:72px 0}.alt{background:var(--gray)}
 h1,h2,h3{color:var(--navy);line-height:1.35}
-h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:800;margin-bottom:14px}
-h3{font-size:1.25rem;font-weight:700;margin-bottom:8px}
-.lead{color:var(--muted);font-size:1.08rem}
-.bg-gray{background:var(--gray)}
-
-/* Boutons */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  min-height:48px;padding:12px 28px;border-radius:14px;border:2px solid transparent;
-  font-weight:700;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s,color .2s;
-}
-.btn-primary{background:var(--green);color:#fff;box-shadow:0 8px 20px rgba(19,185,129,.28)}
-.btn-primary:hover{background:var(--green-dark);transform:translateY(-2px)}
-.btn-outline{border-color:rgba(255,255,255,.55);color:#fff;background:transparent}
-.btn-outline:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
-.btn-dark{background:var(--navy);color:#fff}
-.btn-dark:hover{background:var(--navy-2)}
-.btn[disabled]{opacity:.65;cursor:not-allowed;transform:none}
-
-/* ==========================================================
-   2. Navigation
-   ========================================================== */
-.site-header{
-  position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);
-  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.4rem;color:var(--navy)}
-.logo-mark{width:40px;height:40px;border-radius:12px;background:var(--navy);display:grid;place-items:center}
-.logo small{color:var(--green-dark);font-size:.95rem;font-weight:700}
-.nav-links{display:flex;align-items:center;gap:6px}
-.nav-links a{padding:8px 12px;border-radius:10px;font-weight:500;color:var(--text);transition:background .2s,color .2s}
-.nav-links a:hover{background:var(--gray);color:var(--navy)}
-.nav-links a.active{color:var(--green-dark);font-weight:700}
-.nav-cta{display:flex;align-items:center;gap:10px}
-.nav-cta .btn{min-height:42px;padding:8px 20px}
-.menu-toggle{
-  display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--border);
-  background:#fff;cursor:pointer;align-items:center;justify-content:center;
-}
-
-/* ==========================================================
-   3. Hero
-   ========================================================== */
-.hero{
-  background:linear-gradient(160deg,var(--navy) 0%,#17395A 100%);
-  color:#fff;padding:96px 0 110px;position:relative;overflow:hidden;
-}
-.hero::before,.hero::after{
-  content:"";position:absolute;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(19,185,129,.28),transparent 70%);
-}
-.hero::before{width:520px;height:520px;top:-180px;inset-inline-start:-120px}
-.hero::after{width:420px;height:420px;bottom:-200px;inset-inline-end:-100px;opacity:.7}
-.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
-.badge{
-  display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.2);padding:6px 16px;border-radius:999px;font-size:.92rem;margin-bottom:20px;
-}
-.badge i{width:9px;height:9px;border-radius:50%;background:var(--green);display:inline-block}
-.hero h1{color:#fff;font-size:clamp(2.3rem,5.6vw,3.8rem);font-weight:800;margin-bottom:18px}
-.hero h1 span{color:var(--green)}
-.hero p{color:#D5DEE8;font-size:1.15rem;max-width:560px;margin-bottom:32px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
-.hero-visual{display:flex;justify-content:center}
-.hero-card{
-  width:min(100%,380px);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
-  border-radius:28px;padding:28px;backdrop-filter:blur(6px);
-}
-.flow-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.1);border-radius:16px;padding:14px 16px}
-.flow-item+.flow-link{height:22px;width:2px;background:rgba(19,185,129,.6);margin:0 28px}
-.flow-link+.flow-item{margin-top:0}
-.flow-ic{width:44px;height:44px;border-radius:12px;background:var(--green);display:grid;place-items:center;flex:none}
-.flow-item b{display:block;font-size:1.02rem}
-.flow-item span{font-size:.88rem;color:#CBD6E2}
-
-/* ==========================================================
-   4. Cartes génériques
-   ========================================================== */
-.grid{display:grid;gap:24px}
-.grid-2{grid-template-columns:repeat(2,1fr)}
-.grid-3{grid-template-columns:repeat(3,1fr)}
-.grid-4{grid-template-columns:repeat(4,1fr)}
-.card{
-  background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:30px;
-  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
-}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(16,42,67,.12)}
-.icon-box{
-  width:56px;height:56px;border-radius:16px;background:rgba(19,185,129,.12);
-  display:grid;place-items:center;margin-bottom:18px;color:var(--green-dark)
-}
-.card p{color:var(--muted)}
-
-/* Problème / solution */
-.ps-card.problem{border-top:5px solid #E2735F}
-.ps-card.solution{border-top:5px solid var(--green)}
-.ps-card ul{margin-top:14px;display:grid;gap:10px}
-.ps-card li{display:flex;gap:10px;color:var(--muted)}
-.ps-card li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;margin-top:12px;background:var(--green)}
-.ps-card.problem li::before{background:#E2735F}
-
-/* Étapes */
-.step{position:relative}
-.step-num{
-  position:absolute;top:22px;inset-inline-end:24px;font-size:2.6rem;font-weight:800;
-  color:rgba(16,42,67,.08);line-height:1;
-}
-
-/* Exemples */
-.example{position:relative;padding-top:44px}
-.example-tag{
-  position:absolute;top:16px;inset-inline-start:16px;background:#FFF4D6;color:#8A6100;
-  border:1px solid #F2D98B;font-size:.82rem;font-weight:700;padding:2px 12px;border-radius:999px;
-}
-.example .cat{color:var(--green-dark);font-weight:700;font-size:.92rem}
-
-/* Confiance */
-.trust-card{display:flex;gap:18px;align-items:flex-start}
-.trust-card .icon-box{margin:0;flex:none}
-
-/* Public cible */
-.audience-card{text-align:center}
-.audience-card .icon-box{margin-inline:auto}
-
-/* ==========================================================
-   5. Formulaire
-   ========================================================== */
-.signup-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
-.signup-info{background:var(--navy);color:#fff;border-radius:var(--radius);padding:36px}
-.signup-info h2{color:#fff;font-size:1.8rem}
-.signup-info p{color:#D5DEE8}
-.signup-info ul{margin-top:20px;display:grid;gap:12px}
-.signup-info li{display:flex;gap:10px;color:#D5DEE8;font-size:.98rem}
-.signup-info li svg{flex:none;margin-top:6px}
-form.signup{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field{margin-bottom:18px}
-.field label{display:block;font-weight:700;color:var(--navy);margin-bottom:6px;font-size:.98rem}
-.field .opt{font-weight:400;color:var(--muted);font-size:.85rem}
-.req{color:#C0392B}
-.input{
-  width:100%;min-height:50px;padding:10px 14px;border:1.5px solid var(--border);border-radius:12px;
-  background:var(--gray);transition:border-color .2s,background .2s;
-}
-textarea.input{min-height:120px;resize:vertical}
-.input:focus{outline:none;border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(19,185,129,.15)}
-.input[aria-invalid="true"]{border-color:#C0392B;background:#FFF6F5}
-.error{color:#B3261E;font-size:.88rem;margin-top:5px;min-height:0}
-.error:empty{display:none}
-.consent{display:flex;gap:12px;align-items:flex-start;margin:6px 0 4px}
-.consent input{width:22px;height:22px;margin-top:5px;accent-color:var(--green);flex:none}
-.consent label{font-weight:400;font-size:.95rem;color:var(--text)}
-.link-btn{background:none;border:0;padding:0;color:var(--green-dark);text-decoration:underline;cursor:pointer;font-weight:700}
-.hp{position:absolute;inset-inline-start:-9999px;width:1px;height:1px;overflow:hidden}
-.form-status{margin-top:18px;padding:14px 16px;border-radius:12px;font-size:.98rem;display:none}
-.form-status.show{display:block}
-.form-status.ok{background:#E6F8F1;color:#0B6B4B;border:1px solid #A8E5CE}
-.form-status.err{background:#FDECEA;color:#8F1D14;border:1px solid #F3B7B0}
-.privacy-note{font-size:.85rem;color:var(--muted);margin-top:12px}
-
-/* ==========================================================
-   6. Équipe
-   ========================================================== */
-.team-card{text-align:center}
-.avatar{
-  width:84px;height:84px;border-radius:50%;margin:0 auto 14px;background:var(--navy);color:#fff;
-  display:grid;place-items:center;font-size:1.8rem;font-weight:800;
-}
-.team-role{color:var(--green-dark);font-weight:700}
-.team-empty{
-  max-width:640px;margin:0 auto;text-align:center;background:#fff;border:2px dashed var(--border);
-  border-radius:var(--radius);padding:36px;color:var(--muted)
-}
-
-/* ==========================================================
-   7. Footer & modal
-   ========================================================== */
-footer{background:var(--navy);color:#C9D5E2;padding:64px 0 28px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.14)}
-footer .logo{color:#fff;margin-bottom:14px}
-footer h3{color:#fff;font-size:1.05rem;margin-bottom:14px}
-footer li{margin-bottom:8px}
-footer a:hover,footer .link-btn:hover{color:var(--green)}
-footer .link-btn{color:#C9D5E2;font-weight:500}
-.copy{padding-top:22px;text-align:center;font-size:.92rem}
-
-dialog{
-  border:0;border-radius:24px;max-width:min(680px,calc(100% - 32px));width:100%;padding:0;
-  box-shadow:0 30px 80px rgba(0,0,0,.35);margin:auto;
-}
-dialog::backdrop{background:rgba(16,42,67,.6)}
-.modal-head{display:flex;justify-content:space-between;align-items:center;padding:20px 26px;border-bottom:1px solid var(--border)}
-.modal-body{padding:22px 26px 26px;max-height:70vh;overflow:auto}
-.modal-body h3{margin-top:18px;font-size:1.08rem}
-.modal-body p,.modal-body li{color:var(--muted);font-size:.98rem}
-.modal-body ul{list-style:disc;padding-inline-start:22px}
-.close-x{width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:1.3rem;line-height:1}
-
-/* Animations discrètes */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
-  .card,.btn{transition:none}
-}
-
-/* ==========================================================
-   8. Responsive
-   ========================================================== */
-@media (max-width:980px){
-  .hero-inner,.signup-wrap{grid-template-columns:1fr}
-  .grid-4{grid-template-columns:repeat(2,1fr)}
-  .grid-3{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media (max-width:860px){
-  .menu-toggle{display:inline-flex}
-  .nav-cta .btn{display:none}
-  .nav-links{
-    position:absolute;top:72px;inset-inline:0;background:#fff;flex-direction:column;align-items:stretch;
-    padding:14px 20px 22px;border-bottom:1px solid var(--border);box-shadow:0 20px 30px rgba(16,42,67,.1);
-    display:none;
-  }
-  .nav-links.open{display:flex}
-  .nav-links a{padding:14px 12px;font-size:1.05rem}
-  .nav-links .mobile-cta{display:flex;margin-top:8px}
-}
-.mobile-cta{display:none}
-@media (max-width:640px){
-  body{font-size:16px}
-  section{padding:64px 0}
-  .grid-2,.grid-3,.grid-4,.row,.footer-grid{grid-template-columns:1fr}
-  .hero{padding:64px 0 76px}
-  .hero-actions .btn{width:100%}
-  form.signup,.signup-info{padding:24px}
-}
+h2{font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:800;margin-bottom:12px}h3{font-size:1.2rem;margin-bottom:6px}
+.sh{max-width:720px;margin:0 auto 40px;text-align:center}.lead{color:var(--muted)}
+.skip{position:absolute;top:-60px;inset-inline-start:10px;background:var(--navy);color:#fff;padding:8px 14px;border-radius:10px;z-index:300}.skip:focus{top:10px}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.35rem;color:var(--navy)}
+.lm{width:40px;height:40px;border-radius:12px;background:var(--navy);display:grid;place-items:center}
+.links{display:flex;gap:4px}
+.links a{padding:8px 12px;border-radius:10px;font-weight:500}.links a:hover{background:var(--gray)}
+.links a.on{color:var(--gd);font-weight:700}
+.tools{display:flex;align-items:center;gap:8px}
+.lang{display:flex;border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.lang button{border:0;background:#fff;padding:6px 12px;font-weight:700;font-size:.9rem}
+.lang button[aria-pressed=true]{background:var(--navy);color:#fff}
+#mt{display:none;width:44px;height:44px;border:1px solid var(--bd);border-radius:12px;background:#fff;align-items:center;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 26px;border-radius:14px;border:2px solid transparent;font-weight:700;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.bp{background:var(--green);color:#fff}.bp:hover{background:var(--gd)}
+.bo{border-color:rgba(255,255,255,.6);color:#fff}.bo:hover{background:rgba(255,255,255,.12)}
+.bd{border-color:var(--navy);color:var(--navy)}.bd:hover{background:var(--gray)}
+.hero{background:linear-gradient(160deg,var(--navy),#17395A);color:#fff;padding:88px 0 96px}
+.hero h1{color:#fff;font-size:clamp(2rem,5vw,3.3rem);font-weight:800;margin-bottom:16px;max-width:820px}
+.hero p{color:#D5DEE8;font-size:1.12rem;max-width:640px;margin-bottom:28px}
+.badge{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:4px 16px;border-radius:999px;font-size:.9rem;margin-bottom:18px}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+.ph{background:linear-gradient(160deg,var(--navy),#17395A);color:#fff;padding:56px 0}.ph h1{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem)}.ph p{color:#D5DEE8;max-width:700px;margin-top:8px}
+.g{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:28px;box-shadow:var(--sh);transition:transform .25s}
+.card:hover{transform:translateY(-3px)}.card p,.card li,.txt p,.txt li{color:var(--muted)}
+.card ul,.txt ul{margin-top:10px;display:grid;gap:8px}
+.card li,.txt li{display:flex;gap:10px}.card li::before,.txt li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--green);margin-top:12px}
+.pr{border-top:5px solid #E2735F}.pr li::before{background:#E2735F}.so{border-top:5px solid var(--green)}
+.num{width:44px;height:44px;border-radius:12px;background:rgba(19,185,129,.14);color:var(--gd);display:grid;place-items:center;font-weight:800;margin-bottom:12px}
+.tag{display:inline-block;background:#FFF4D6;color:#8A6100;border:1px solid #F2D98B;font-size:.82rem;font-weight:700;padding:2px 12px;border-radius:999px;margin-bottom:10px}
+.cat{color:var(--gd);font-weight:700;font-size:.92rem;display:block}
+.note{max-width:720px;margin:24px auto 0;text-align:center;color:var(--muted);font-size:.95rem}
+.txt{max-width:820px}.txt h2{font-size:1.5rem;margin-top:36px}.txt p{margin-top:6px}
+.draft{background:#FFF4D6;border:1px solid #F2D98B;color:#6B4B00;border-radius:14px;padding:12px 18px;margin-bottom:10px}
+details{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:14px 18px;margin-top:10px}
+summary{font-weight:700;color:var(--navy);cursor:pointer}details p{margin-top:8px}
+.tm{text-align:center}.av{width:92px;height:92px;border-radius:50%;margin:0 auto 14px;background:var(--navy);display:grid;place-items:center}
+.tm h3{margin:0}.tm .la{color:var(--gd);font-weight:700;direction:ltr}
+.empty{border:2px dashed var(--bd);border-radius:var(--r);padding:32px;text-align:center;color:var(--muted);max-width:640px;margin:0 auto;background:#fff}
+.after{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+footer{background:var(--navy);color:#C9D5E2;padding:56px 0 24px}
+footer .logo{color:#fff;margin-bottom:10px}footer h3{color:#fff;font-size:1.05rem}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.14)}
+footer li{margin-bottom:6px}footer a:hover{color:var(--green)}.cp{text-align:center;padding-top:20px;font-size:.92rem}
+main{animation:in .45s ease}@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){main{animation:none}html{scroll-behavior:auto}.card,.btn{transition:none}}
+@media(max-width:900px){#mt{display:inline-flex}
+.links{position:absolute;top:70px;inset-inline:0;background:#fff;flex-direction:column;padding:12px 20px 20px;border-bottom:1px solid var(--bd);box-shadow:0 20px 30px rgba(16,42,67,.1);display:none}
+.links.open{display:flex}.links a{padding:14px 12px}.fg{grid-template-columns:1fr}}
+@media(max-width:560px){body{font-size:16px}section{padding:56px 0}.acts .btn{width:100%}.hero{padding:60px 0}}
 </style>
 </head>
-
 <body>
-<a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
-
-<!-- ============ 1. شريط التنقل ============ -->
-<header class="site-header">
-  <div class="container nav">
-    <a href="#home" class="logo" aria-label="مولني - الصفحة الرئيسية">
-      <span class="logo-mark" aria-hidden="true">
-        <svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#13B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48V18l20 22 20-22v30"/></svg>
-      </span>
-      <span>مولني <small>Meweli</small></span>
-    </a>
-
-    <nav aria-label="التنقل الرئيسي">
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#problem">الفكرة</a></li>
-        <li><a href="#how">كيف تعمل</a></li>
-        <li><a href="#audience">لمن المنصّة</a></li>
-        <li><a href="#examples">أمثلة</a></li>
-        <li><a href="#trust">الثقة</a></li>
-        <li><a href="#team">الفريق</a></li>
-        <li class="mobile-cta"><a href="#signup" class="btn btn-primary" style="width:100%">سجّل اهتمامك</a></li>
-      </ul>
-    </nav>
-
-    <div class="nav-cta">
-      <a href="#signup" class="btn btn-primary">سجّل اهتمامك</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navLinks">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#102A43" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
+<a class="skip" href="#main" id="skip"></a>
+<header><div class="c nav">
+  <a href="#/home" class="logo" aria-label="Meweli"><span class="lm" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#13B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48V18l20 22 20-22v30"/></svg></span><span id="brand"></span></a>
+  <nav id="nav" aria-label="Main"></nav>
+  <div class="tools">
+    <div class="lang" role="group" aria-label="Language"><button data-l="ar">AR</button><button data-l="fr">FR</button><button data-l="en">EN</button></div>
+    <button id="mt" aria-expanded="false" aria-controls="navul"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#102A43" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
-</header>
-
-<main id="main">
-
-<!-- ============ 2. Hero ============ -->
-<section class="hero" id="home" aria-labelledby="hero-title">
-  <div class="container hero-inner">
-    <div>
-      <span class="badge"><i></i> المشروع قيد الإطلاق والتحقق من الفكرة</span>
-      <h1 id="hero-title">عندك فكرة؟ <span>خلّيها توصل</span></h1>
-      <p>مولني منصّة رقمية موريتانية نعمل على إطلاقها، هدفها ربط أصحاب الأفكار والمشاريع بالأشخاص المهتمين باكتشافها ومرافقتها. سجّل اهتمامك وكن من أوائل المتابعين لرحلتنا.</p>
-      <div class="hero-actions">
-        <a href="#signup" class="btn btn-primary" data-profile="project_owner">أنا صاحب مشروع</a>
-        <a href="#signup" class="btn btn-outline" data-profile="interested">أريد اكتشاف المشاريع</a>
-      </div>
-    </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hero-card">
-        <div class="flow-item">
-          <span class="flow-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></span>
-          <div><b>فكرة</b><span>صاحب الفكرة يعرضها</span></div>
-        </div>
-        <div class="flow-link"></div>
-        <div class="flow-item">
-          <span class="flow-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
-          <div><b>اكتشاف</b><span>المهتمون يطّلعون عليها</span></div>
-        </div>
-        <div class="flow-link"></div>
-        <div class="flow-item">
-          <span class="flow-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-          <div><b>تواصل</b><span>إمكانية الحوار والتعاون</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3. المشكلة والحل ============ -->
-<section id="problem" aria-labelledby="problem-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">لماذا مولني؟</span>
-      <h2 id="problem-title">أفكار كثيرة تبقى حبيسة أصحابها</h2>
-      <p class="lead">كثير من الأفكار الجيدة لا تجد طريقها إلى من يمكنه الاهتمام بها أو دعمها، لا لضعفها بل لصعوبة التعريف بها.</p>
-    </div>
-    <div class="grid grid-2">
-      <article class="card ps-card problem reveal">
-        <h3>التحدّي</h3>
-        <p>يجد صاحب الفكرة أو المشروع صعوبة في إيصال فكرته إلى الأشخاص المناسبين.</p>
-        <ul>
-          <li>قنوات محدودة للتعريف بالأفكار والمشاريع الناشئة.</li>
-          <li>صعوبة الوصول إلى مهتمين وأصحاب خبرة قد يفيدون المشروع.</li>
-          <li>غياب مساحة واضحة تجمع الطرفين في مكان واحد.</li>
-        </ul>
-      </article>
-      <article class="card ps-card solution reveal">
-        <h3>حلّ مولني</h3>
-        <p>منصّة تمنح الأفكار مساحة للظهور، وتتيح للمهتمين اكتشافها والتواصل مع أصحابها.</p>
-        <ul>
-          <li>مكان واحد لعرض الفكرة بوضوح.</li>
-          <li>اكتشاف أسهل للمشاريع من المهتمين بها.</li>
-          <li>إمكانية فتح باب الحوار والتعاون بين الطرفين.</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4. كيف يعمل مولني ============ -->
-<section id="how" class="bg-gray" aria-labelledby="how-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">ثلاث خطوات</span>
-      <h2 id="how-title">كيف يعمل مولني؟</h2>
-      <p class="lead">مسار بسيط يبدأ بفكرة وينتهي بإمكانية تواصل وتعاون.</p>
-    </div>
-    <div class="grid grid-3">
-      <article class="card step reveal">
-        <span class="step-num" aria-hidden="true">1</span>
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></div>
-        <h3>قدّم فكرتك</h3>
-        <p>يعرّف صاحب الفكرة أو المشروع بفكرته بشكل واضح ومختصر.</p>
-      </article>
-      <article class="card step reveal">
-        <span class="step-num" aria-hidden="true">2</span>
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
-        <h3>يكتشفها المهتمّون</h3>
-        <p>يطّلع الأشخاص المهتمون بالمشاريع على الأفكار المعروضة ويتعرّفون عليها.</p>
-      </article>
-      <article class="card step reveal">
-        <span class="step-num" aria-hidden="true">3</span>
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
-        <h3>تواصل وتعاون</h3>
-        <p>تُفتح إمكانية التواصل بين الطرفين، وما يتبعها من تعاون يظلّ باتفاقهما.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 5. الجمهور المستهدف ============ -->
-<section id="audience" aria-labelledby="aud-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">لمن مولني؟</span>
-      <h2 id="aud-title">منصّة تجمع كل المهتمين بالأفكار</h2>
-    </div>
-    <div class="grid grid-4">
-      <article class="card audience-card reveal">
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></div>
-        <h3>أصحاب الأفكار</h3>
-        <p>من لديهم فكرة ويبحثون عن مساحة للتعريف بها.</p>
-      </article>
-      <article class="card audience-card reveal">
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-        <h3>رواد الأعمال</h3>
-        <p>من يطلقون مشاريعهم أو يطوّرونها ويرغبون في توسيع حضورهم.</p>
-      </article>
-      <article class="card audience-card reveal">
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
-        <h3>المهتمون بالمشاريع</h3>
-        <p>من يحبون اكتشاف المبادرات الجديدة ومتابعتها.</p>
-      </article>
-      <article class="card audience-card reveal">
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
-        <h3>أصحاب الخبرة والدعم</h3>
-        <p>من يستطيعون تقديم خبرة أو مرافقة أو دعم للمشاريع.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 6. أمثلة المشاريع ============ -->
-<section id="examples" class="bg-gray" aria-labelledby="ex-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">تصوّر لما يمكن أن تكون عليه المنصّة</span>
-      <h2 id="ex-title">أمثلة على أنواع المشاريع</h2>
-      <p class="lead">هذه البطاقات تخيّلية وهدفها شرح الفكرة فقط، وليست مشاريع حقيقية أو أرقامًا فعلية.</p>
-    </div>
-    <div class="grid grid-3">
-      <article class="card example reveal">
-        <span class="example-tag">مثال توضيحي</span>
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
-        <span class="cat">مشروع تعليمي</span>
-        <h3>مبادرة دعم تعليمي</h3>
-        <p>فكرة لمساعدة التلاميذ على التعلّم بوسائل مبسّطة، ويمكن أن تهمّ المعلمين والمهتمين بالتعليم.</p>
-      </article>
-      <article class="card example reveal">
-        <span class="example-tag">مثال توضيحي</span>
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
-        <span class="cat">مشروع تقني</span>
-        <h3>تطبيق لخدمة محلية</h3>
-        <p>فكرة تقنية تسهّل خدمة يومية، وقد تحتاج إلى مطوّرين أو مختصين في التصميم.</p>
-      </article>
-      <article class="card example reveal">
-        <span class="example-tag">مثال توضيحي</span>
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
-        <span class="cat">مشروع اجتماعي</span>
-        <h3>مبادرة تضامن مجتمعي</h3>
-        <p>فكرة تخدم فئة من المجتمع، وقد تهمّ المتطوعين والمهتمين بالعمل الاجتماعي.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 7. الثقة والشفافية ============ -->
-<section id="trust" aria-labelledby="trust-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">نلتزم بالوضوح</span>
-      <h2 id="trust-title">الثقة والشفافية</h2>
-      <p class="lead">نريد بناء منصّة يثق بها الناس منذ البداية.</p>
-    </div>
-    <div class="grid grid-3">
-      <article class="card trust-card reveal">
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg></div>
-        <div><h3>رؤيتنا</h3><p>أن تجد كل فكرة جيدة طريقها إلى من يهتم بها، وأن نسهم في تنشيط ثقافة المبادرة في موريتانيا.</p></div>
-      </article>
-      <article class="card trust-card reveal">
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-        <div><h3>احترام الخصوصية</h3><p>نجمع الحد الأدنى من البيانات الضرورية، ولا نستخدمها إلا للتواصل بشأن المشروع.</p></div>
-      </article>
-      <article class="card trust-card reveal">
-        <div class="icon-box"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <div><h3>لا وعود غير مضمونة</h3><p>مولني ما زال في مرحلة الإطلاق، فلا نَعِد بتمويل أو نتائج أو شراكات لا يمكننا ضمانها.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 8. التسجيل المسبق ============ -->
-<section id="signup" class="bg-gray" aria-labelledby="signup-title">
-  <div class="container signup-wrap">
-    <div class="signup-info reveal">
-      <h2 id="signup-title">سجّل اهتمامك</h2>
-      <p>التسجيل المسبق يساعدنا على قياس الاهتمام بالفكرة وإبلاغك بتطورات المشروع. لا يتطلب سوى اسمك، وبقية الحقول اختيارية.</p>
-      <ul>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>الاسم هو الحقل الوحيد الإلزامي.</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>التسجيل لا يعني التزامًا من أي طرف.</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>لا نطلب أي مبالغ مالية.</li>
-      </ul>
-    </div>
-
-    <form class="signup reveal" id="signupForm" novalidate aria-describedby="formStatus">
-      <div class="field">
-        <label for="fullName">الاسم الكامل <span class="req" aria-hidden="true">*</span><span class="sr-only"></span></label>
-        <input class="input" type="text" id="fullName" name="full_name" autocomplete="name" required maxlength="100" aria-describedby="err-fullName">
-        <div class="error" id="err-fullName" role="alert"></div>
-      </div>
-
-      <div class="row">
-        <div class="field">
-          <label for="email">البريد الإلكتروني <span class="opt">(اختياري)</span></label>
-          <input class="input" type="email" id="email" name="email" autocomplete="email" dir="ltr" maxlength="150" style="text-align:right" aria-describedby="err-email">
-          <div class="error" id="err-email" role="alert"></div>
-        </div>
-        <div class="field">
-          <label for="phone">رقم الهاتف <span class="opt">(اختياري)</span></label>
-          <input class="input" type="tel" id="phone" name="phone" autocomplete="tel" dir="ltr" maxlength="25" style="text-align:right" aria-describedby="err-phone">
-          <div class="error" id="err-phone" role="alert"></div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="field">
-          <label for="city">المدينة أو الولاية <span class="opt">(اختياري)</span></label>
-          <input class="input" type="text" id="city" name="city" autocomplete="address-level2" maxlength="80">
-        </div>
-        <div class="field">
-          <label for="profile">الصفة <span class="opt">(اختياري)</span></label>
-          <select class="input" id="profile" name="profile">
-            <option value="">اختر الصفة</option>
-            <option value="idea_holder">صاحب فكرة</option>
-            <option value="project_owner">صاحب مشروع</option>
-            <option value="entrepreneur">رائد أعمال</option>
-            <option value="interested">مهتم بالمشاريع</option>
-            <option value="investor_supporter">مستثمر أو داعم محتمل</option>
-            <option value="expert">خبير أو مهتم بالتعاون</option>
-            <option value="other">أخرى</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="message">وصف الفكرة أو نوع الاهتمام <span class="opt">(اختياري)</span></label>
-        <textarea class="input" id="message" name="message" maxlength="1000" placeholder="اكتب بإيجاز، ولا تُدخل معلومات حساسة أو سرية."></textarea>
-      </div>
-
-      <!-- Champ piège anti-spam : doit rester vide -->
-      <div class="hp" aria-hidden="true">
-        <label for="website">لا تملأ هذا الحقل</label>
-        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-      </div>
-
-      <div class="field" style="margin-bottom:8px">
-        <div class="consent">
-          <input type="checkbox" id="consent" name="consent" required aria-describedby="err-consent">
-          <label for="consent">أوافق على <button type="button" class="link-btn" data-open-privacy>سياسة الخصوصية</button> وعلى استخدام بياناتي للتواصل معي بشأن مشروع مولني. <span class="req" aria-hidden="true">*</span></label>
-        </div>
-        <div class="error" id="err-consent" role="alert"></div>
-      </div>
-
-      <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">إرسال التسجيل</button>
-      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-      <p class="privacy-note">الحقول المعلَّمة بنجمة (*) إلزامية.</p>
-    </form>
-  </div>
-</section>
-
-<!-- ============ 9. الفريق ============ -->
-<section id="team" aria-labelledby="team-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">من نحن</span>
-      <h2 id="team-title">الفريق</h2>
-    </div>
-    <!-- Rempli par le JS à partir du tableau TEAM (voir la section CONFIG) -->
-    <div id="teamMount"></div>
-  </div>
-</section>
-
-</main>
-
-<!-- ============ 10. التذييل ============ -->
-<footer id="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <a href="#home" class="logo" aria-label="مولني">
-          <span class="logo-mark" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#13B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48V18l20 22 20-22v30"/></svg>
-          </span>
-          <span>مولني</span>
-        </a>
-        <p>منصّة رقمية موريتانية قيد الإطلاق، تربط أصحاب الأفكار والمشاريع بالمهتمين باكتشافها ومرافقتها.</p>
-      </div>
-      <div>
-        <h3>روابط سريعة</h3>
-        <ul>
-          <li><a href="#problem">الفكرة</a></li>
-          <li><a href="#how">كيف تعمل</a></li>
-          <li><a href="#audience">لمن المنصّة</a></li>
-          <li><a href="#examples">أمثلة</a></li>
-          <li><a href="#signup">التسجيل المسبق</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>معلومات</h3>
-        <ul>
-          <li><a href="#trust">الثقة والشفافية</a></li>
-          <li><a href="#team">الفريق</a></li>
-          <li><button type="button" class="link-btn" data-open-privacy>سياسة الخصوصية</button></li>
-          <li id="contactItem" hidden></li>
-        </ul>
-      </div>
-    </div>
-    <p class="copy">© 2026 مولني. جميع الحقوق محفوظة.</p>
-  </div>
-</footer>
-
-<!-- نافذة سياسة الخصوصية -->
-<dialog id="privacyDialog" aria-labelledby="privacyTitle">
-  <div class="modal-head">
-    <h2 id="privacyTitle" style="font-size:1.3rem;margin:0">سياسة الخصوصية</h2>
-    <button class="close-x" type="button" id="closePrivacy" aria-label="إغلاق">&times;</button>
-  </div>
-  <div class="modal-body">
-    <p>آخر تحديث: 2026. تشرح هذه السياسة كيف نتعامل مع البيانات التي ترسلها عبر نموذج التسجيل المسبق.</p>
-
-    <h3>البيانات التي نجمعها</h3>
-    <ul>
-      <li>الاسم الكامل (إلزامي).</li>
-      <li>البريد الإلكتروني ورقم الهاتف والمدينة أو الولاية والصفة ووصف الاهتمام (اختيارية).</li>
-    </ul>
-
-    <h3>لماذا نجمعها</h3>
-    <p>للتواصل معك بشأن مشروع مولني وإبلاغك بتطوراته، ولتقدير مستوى الاهتمام بالفكرة في مرحلة التحقق منها.</p>
-
-    <h3>كيف تُعالَج</h3>
-    <p>تُرسل البيانات عبر النموذج إلى خدمة جمع البيانات التي يختارها فريق المشروع، وتُحفظ لدى هذه الخدمة. يتولى الفريق تحديد اسم الخدمة ومكان التخزين قبل الإطلاق العلني. لا ندرج في الموقع أي أدوات تتبّع أو إعلانات.</p>
-
-    <h3>المشاركة والاحتفاظ</h3>
-    <p>لا نبيع بياناتك ولا نشاركها لأغراض تسويقية. نحتفظ بها المدة اللازمة للغرض المذكور فقط.</p>
-
-    <h3>حقوقك</h3>
-    <p>يمكنك طلب الاطلاع على بياناتك أو تصحيحها أو حذفها، وسحب موافقتك في أي وقت، عبر وسيلة الاتصال الرسمية التي يعلنها المشروع.</p>
-
-    <h3>نصيحة</h3>
-    <p>لا تُدخل في وصف الفكرة معلومات سرية أو حساسة، فالموقع في مرحلته الأولى لا يوفّر آلية لحماية الأسرار التجارية.</p>
-  </div>
-</dialog>
+</div></header>
+<main id="main" tabindex="-1"></main>
+<footer id="foot"></footer>
 
 <script>
-/* ==========================================================
-   CONFIG — à modifier avant la mise en ligne
-   ========================================================== */
-const CONFIG = {
-  // URL du service qui reçoit les inscriptions (ex. Formspree : https://formspree.io/f/xxxxxxx).
-  // Tant que cette valeur est vide, AUCUNE inscription n'est enregistrée
-  // et le formulaire affiche un message d'indisponibilité (jamais de faux succès).
-  FORM_ENDPOINT: "",
+/* ====== CONFIG : à compléter avant mise en ligne (rien n'est affiché tant que c'est vide) ====== */
+const CONFIG={CONTACT:[] /* ex. {label:"Email",text:"contact@exemple.com",href:"mailto:contact@exemple.com"} */};
+const TEAM=[["محمد لحبيب","Mohamed Lehbib"],["إينجيه سيدي محمد","Injihe Sidi Mohamed"],["محمد احمتو","Mohamed Ahmetou"]];
 
-  // Contact officiel : laisser vide tant qu'il n'existe pas (rien ne s'affiche).
-  // Exemple : { label: "البريد الإلكتروني", href: "mailto:contact@exemple.com", text: "contact@exemple.com" }
-  CONTACT: null,
+/* ====== TRADUCTIONS ====== */
+const D={
+ar:{
+brand:"مولني",skip:"تخطَّ إلى المحتوى",
+n:["الرئيسية","صاحب مشروع","ممول","من نحن","فريق العمل","اتصل بنا"],
+o:"أنا صاحب مشروع",f:"أنا ممول",back:"العودة إلى الرئيسية",toF:"صفحة الممول",toO:"صفحة صاحب المشروع",ill:"مثال توضيحي",more:"اعرف المزيد",
+rights:"© 2026 مولني. جميع الحقوق محفوظة.",quick:"روابط",legal:"معلومات قانونية",priv:"سياسة الخصوصية",terms:"شروط الاستخدام",
+foot:"منصة موريتانية قيد التطوير تربط أصحاب المشاريع بالممولين.",
+title:{home:"مولني | منصة تربط أصحاب المشاريع بالممولين",owner:"صاحب مشروع | مولني",funder:"ممول | مولني",about:"من نحن | مولني",team:"فريق العمل | مولني",contact:"اتصل بنا | مولني",privacy:"سياسة الخصوصية | مولني",terms:"شروط الاستخدام | مولني"},
+hero:["مولني — منصة تربط أصحاب المشاريع بالممولين","مولني منصة رقمية موريتانية قيد التطوير، هدفها تسهيل تعرّف أصحاب المشاريع على الممولين المهتمين، وتمكين الممولين من اكتشاف مشاريع تستحق الاهتمام.","المشروع قيد التطوير"],
+ps:["أفكار جيدة تنتظر من يموّلها","التحدي","يجد أصحاب المشاريع صعوبة في الوصول إلى الممولين المناسبين.",["قنوات محدودة للتعريف بالمشاريع الناشئة.","صعوبة عرض المشروع وحاجاته بوضوح.","غياب مساحة تجمع الطرفين."],"حل مولني","مساحة تسهّل الاكتشاف والتعارف بين الطرفين.",["عرض واضح للمشروع وأهدافه.","اكتشاف أسهل للمشاريع من قِبل الممولين.","إمكانية التواصل بين الطرفين، والاتفاق بينهما شأنهما."]],
+how:["كيف يعمل مولني؟","مسار بسيط من الفكرة إلى التعارف.",[["يعرّف صاحب المشروع بمشروعه","يوضّح الفكرة والأهداف والحاجة إلى التمويل."],["يطّلع الممول على المشاريع","يتعرّف على المشاريع المعروضة ويقيّمها بنفسه."],["التعارف والحوار","يمكن للطرفين التواصل، وأي اتفاق يتم بينهما مباشرة."]]],
+cats:["فئتان من المستخدمين",["صاحب المشروع","لمن لديه فكرة أو مشروع ويبحث عن ممولين محتملين."],["الممول","لشخص أو جهة ترغب في اكتشاف المشاريع وتفكّر في تمويلها."]],
+ex:["أمثلة على أنواع المشاريع","هذه البطاقات تخيّلية لشرح الفكرة فقط، وليست مشاريع حقيقية.",[["تعليم","مبادرة دعم تعليمي","فكرة لمساعدة التلاميذ على التعلّم بوسائل مبسّطة."],["تقنية","تطبيق لخدمة محلية","فكرة تقنية تسهّل خدمة يومية."],["اجتماعي","مبادرة تضامن مجتمعي","فكرة تخدم فئة من المجتمع."]]],
+tr:["الثقة والشفافية","نريد بناء منصة يثق بها الجميع.",[["الوضوح","نذكر بوضوح ما هو متاح وما لم يتوفر بعد."],["لا وعود مضمونة","لا نعد بتمويل أو عائد أو نتيجة معينة."],["التحقق","ننصح الطرفين بالتحقق من المعلومات قبل أي التزام."]]],
+team:"فريق العمل",
+contact:["اتصل بنا","وسائل التواصل الرسمية ستُعلن هنا فور توفرها.","لم تُضَف وسائل اتصال بعد. سيتم نشرها في هذه الصفحة عند توفرها."],
+pg:{
+owner:{t:"صفحة صاحب المشروع",l:"لمن لديه فكرة أو مشروع ويرغب في التعريف به أمام ممولين محتملين.",b:[
+["دور صاحب المشروع","هو من يقدّم فكرته أو مشروعه، ويشرح أهدافه وحاجاته بصدق ووضوح."],
+["الفوائد المحتملة",["مساحة للتعريف بالمشروع.","إمكانية الوصول إلى ممولين مهتمين.","فرصة لعرض الفكرة بشكل منظّم."]],
+["خطوات تحضير المشروع",["حدّد المشكلة التي يحلّها مشروعك.","صِف الحل والفئة المستهدفة.","قدّر احتياجاتك المالية والزمنية.","جهّز ملخصًا واضحًا ومختصرًا."]],
+["نصائح لعرض الفكرة",["ابدأ بجملة واحدة تلخّص الفكرة.","استخدم لغة بسيطة وأمثلة ملموسة.","كن صادقًا بشأن المخاطر والتحديات."]],
+["نصائح لشرح الأهداف والاحتياجات المالية",["اذكر المبلغ المطلوب وكيف سيُستخدم.","وضّح المراحل والنتائج المتوقعة.","لا تبالغ في التوقعات."]],
+["مثال توضيحي (ليس مشروعًا حقيقيًا)","مبادرة تعليمية تحتاج إلى تمويل أولي لإعداد محتوى تعليمي، مع شرح للميزانية والمراحل."],
+["أسئلة شائعة",{f:[["هل يضمن مولني حصولي على تمويل؟","لا. المنصة تسهّل التعارف فقط ولا تضمن أي تمويل."],["هل يمكنني تسجيل الدخول؟","لا، لا توجد حسابات أو تسجيل في هذه المرحلة."]]}]]},
+funder:{t:"صفحة الممول",l:"لمن يرغب في اكتشاف المشاريع ويفكّر في تمويلها.",b:[
+["دور الممول","شخص أو جهة تطّلع على المشاريع وتقرّر بحرية ما إذا كانت ستدعمها."],
+["مهمة مولني","تسهيل الاكتشاف والتعارف بين أصحاب المشاريع والممولين."],
+["الفوائد المحتملة",["اكتشاف مشاريع موريتانية متنوعة.","فهم أوضح لأهداف المشاريع وحاجاتها.","إمكانية التواصل المباشر مع أصحابها."]],
+["نصائح لتحليل مشروع",["افهم المشكلة والحل المقترح.","راجع الميزانية والمراحل بدقة.","قيّم خبرة أصحاب المشروع وقدرتهم على التنفيذ.","اطلب توضيحات قبل أي قرار."]],
+["أهمية الشفافية والتحقق","تحقق دائمًا بنفسك من المعلومات والوثائق قبل أي التزام. مولني لا تتحقق من المشاريع نيابةً عنك."],
+["مثال توضيحي (ليس مشروعًا حقيقيًا)","تطبيق محلي يبحث عن دعم لتطوير نموذج أولي، مع خطة واضحة للمراحل."],
+["أسئلة شائعة",{f:[["هل يضمن مولني عائدًا ماليًا؟","لا. لا توجد وعود بعائد أو ربح، وكل قرار مسؤولية صاحبه."],["هل يمكن التحويل المالي عبر الموقع؟","لا، الموقع لا يوفّر دفعًا أو تحويلات."]]}]]},
+about:{t:"من نحن",l:"تعرّف على مولني ورسالتها.",b:[
+["المهمة","ربط أصحاب المشاريع بالممولين المهتمين في موريتانيا."],
+["الرؤية","أن تجد كل فكرة جيدة طريقها إلى من يدعمها."],
+["المشكلة","يصعب على كثير من أصحاب المشاريع الوصول إلى ممولين، ويصعب على الممولين اكتشاف مشاريع مناسبة."],
+["دور أصحاب المشاريع","تقديم مشاريعهم بوضوح وصدق."],
+["دور الممولين","دراسة المشاريع واتخاذ قراراتهم بأنفسهم."],
+["قيمنا","الثقة، الشفافية، والوضوح بشأن ما هو متاح فعلًا."],
+["طموحنا","الإسهام في تطوير المشاريع في موريتانيا. المنصة ما زالت قيد التطوير ولم تُفعَّل خدماتها بعد."]]},
+privacy:{t:"سياسة الخصوصية",l:"مشروع نص قابل للتعديل.",d:"هذا النص مشروع يجب مراجعته وتكييفه قانونيًا قبل النشر.",b:[
+["عدم جمع البيانات","هذا الموقع في صيغته الحالية لا يحتوي على نماذج ولا حسابات ولا أدوات تتبّع. يُحفظ اختيار اللغة فقط في متصفحك."],
+["الخدمات المستقبلية","إذا أضيفت خدمات تجمع بيانات، سيُحدَّث هذا النص قبل ذلك."],
+["الخطوط الخارجية","يحمّل الموقع خط Tajawal من Google Fonts، وقد يستلم مزوّد الخط عنوان IP الخاص بك."],
+["حقوقك","ستُحدَّد طريقة ممارسة حقوقك عند اعتماد وسيلة اتصال رسمية."]]},
+terms:{t:"شروط الاستخدام",l:"مشروع نص قابل للتعديل.",d:"هذا النص مشروع يجب مراجعته وتكييفه قانونيًا قبل النشر.",b:[
+["طبيعة الموقع","الموقع معلوماتي فقط، ولا يقدّم خدمات تمويل أو وساطة مالية أو استشارات."],
+["لا ضمانات","لا نضمن تمويلًا ولا عائدًا ولا نتيجة. كل قرار على مسؤولية صاحبه."],
+["التحقق","على المستخدم التحقق من أي معلومات قبل أي التزام."],
+["المحتوى التوضيحي","الأمثلة الواردة في الموقع توضيحية وليست مشاريع حقيقية."],
+["التعديل","قد تتغير هذه الشروط مع تطوّر المنصة."]]}
+}},
+fr:{
+brand:"Meweli",skip:"Aller au contenu",
+n:["Accueil","Porteur de projet","Financeur","À propos","Notre équipe","Contact"],
+o:"Je suis porteur de projet",f:"Je suis financeur",back:"Retour à l’accueil",toF:"Page financeur",toO:"Page porteur de projet",ill:"Exemple illustratif",more:"En savoir plus",
+rights:"© 2026 Meweli. Tous droits réservés.",quick:"Liens",legal:"Informations légales",priv:"Politique de confidentialité",terms:"Conditions d’utilisation",
+foot:"Plateforme mauritanienne en cours de développement qui rapproche porteurs de projets et financeurs.",
+title:{home:"Meweli | Porteurs de projets et financeurs",owner:"Porteur de projet | Meweli",funder:"Financeur | Meweli",about:"À propos | Meweli",team:"Notre équipe | Meweli",contact:"Contact | Meweli",privacy:"Politique de confidentialité | Meweli",terms:"Conditions d’utilisation | Meweli"},
+hero:["Meweli — La plateforme qui rapproche les porteurs de projets et les financeurs","Meweli est une plateforme numérique mauritanienne en cours de développement. Elle vise à faciliter la rencontre entre porteurs de projets et financeurs intéressés, et à aider ces derniers à découvrir des projets dignes d’intérêt.","Projet en cours de développement"],
+ps:["De bonnes idées qui attendent un financement","Le problème","Les porteurs de projets peinent à trouver les bons financeurs.",["Peu de canaux pour faire connaître les projets naissants.","Difficulté à présenter clairement un projet et ses besoins.","Aucun espace commun pour les deux parties."],"La solution Meweli","Un espace qui facilite la découverte et la mise en relation.",["Une présentation claire du projet et de ses objectifs.","Une découverte plus simple pour les financeurs.","Une possibilité de contact ; tout accord reste entre les parties."]],
+how:["Comment fonctionne Meweli ?","Un parcours simple, de l’idée à la rencontre.",[["Le porteur présente son projet","Il explique l’idée, les objectifs et ses besoins de financement."],["Le financeur découvre les projets","Il prend connaissance des projets présentés et les évalue lui-même."],["Rencontre et dialogue","Les parties peuvent échanger ; tout accord se conclut directement entre elles."]]],
+cats:["Deux catégories d’utilisateurs",["Porteur de projet","Pour toute personne ayant une idée ou un projet et cherchant des financeurs potentiels."],["Financeur","Pour toute personne ou organisation souhaitant découvrir des projets et envisageant de les financer."]],
+ex:["Exemples de types de projets","Ces cartes sont imaginaires, uniquement pour expliquer l’idée : ce ne sont pas des projets réels.",[["Éducation","Initiative de soutien scolaire","Une idée pour aider les élèves à apprendre avec des outils simples."],["Technologie","Application de service local","Une idée technologique qui simplifie un service du quotidien."],["Social","Initiative de solidarité","Une idée au service d’une catégorie de la population."]]],
+tr:["Confiance et transparence","Nous voulons bâtir une plateforme digne de confiance.",[["Clarté","Nous indiquons ce qui est disponible et ce qui ne l’est pas encore."],["Aucune promesse","Aucune promesse de financement, de rendement ou de résultat."],["Vérification","Nous invitons chacun à vérifier les informations avant tout engagement."]]],
+team:"Notre équipe",
+contact:["Contact","Les moyens de contact officiels seront publiés ici dès qu’ils seront disponibles.","Aucun moyen de contact n’a encore été ajouté. Il sera publié sur cette page lorsqu’il sera disponible."],
+pg:{
+owner:{t:"Espace porteur de projet",l:"Pour toute personne ayant une idée ou un projet et souhaitant le faire connaître à des financeurs potentiels.",b:[
+["Le rôle du porteur de projet","Il présente son idée ou son projet, et explique avec honnêteté et clarté ses objectifs et ses besoins."],
+["Avantages potentiels",["Un espace pour faire connaître le projet.","La possibilité d’atteindre des financeurs intéressés.","Une occasion de structurer sa présentation."]],
+["Étapes de préparation",["Définir le problème que le projet résout.","Décrire la solution et le public visé.","Estimer ses besoins financiers et son calendrier.","Rédiger un résumé clair et concis."]],
+["Conseils pour présenter une idée",["Commencer par une phrase qui résume l’idée.","Utiliser un langage simple et des exemples concrets.","Être honnête sur les risques et les défis."]],
+["Objectifs et besoins financiers",["Indiquer le montant recherché et son usage.","Préciser les étapes et les résultats attendus.","Ne pas exagérer les prévisions."]],
+["Exemple illustratif (pas un projet réel)","Une initiative éducative qui cherche un financement de départ pour créer des contenus, avec budget et étapes détaillés."],
+["Questions fréquentes",{f:[["Meweli garantit-il un financement ?","Non. La plateforme facilite la rencontre, sans garantir aucun financement."],["Puis-je me connecter ou créer un compte ?","Non, il n’y a ni compte ni inscription à ce stade."]]}]]},
+funder:{t:"Espace financeur",l:"Pour toute personne ou organisation souhaitant découvrir des projets et envisageant de les financer.",b:[
+["Le rôle du financeur","Il découvre les projets et décide librement de les soutenir ou non."],
+["La mission de Meweli","Faciliter la découverte et la rencontre entre porteurs de projets et financeurs."],
+["Avantages potentiels",["Découvrir des projets mauritaniens variés.","Mieux comprendre les objectifs et besoins des projets.","Pouvoir échanger directement avec les porteurs."]],
+["Conseils pour analyser un projet",["Comprendre le problème et la solution proposée.","Examiner attentivement budget et étapes.","Évaluer l’expérience et la capacité d’exécution de l’équipe.","Demander des précisions avant toute décision."]],
+["Transparence et vérification","Vérifiez toujours vous-même les informations et documents avant tout engagement. Meweli ne vérifie pas les projets à votre place."],
+["Exemple illustratif (pas un projet réel)","Une application locale cherchant un soutien pour un prototype, avec un plan d’étapes clair."],
+["Questions fréquentes",{f:[["Meweli garantit-il un rendement ?","Non. Aucune promesse de rendement ou de gain ; chaque décision relève de son auteur."],["Peut-on transférer de l’argent via le site ?","Non, le site ne propose ni paiement ni transfert."]]}]]},
+about:{t:"À propos de Meweli",l:"Découvrez Meweli et sa mission.",b:[
+["Mission","Rapprocher les porteurs de projets et les financeurs intéressés en Mauritanie."],
+["Vision","Que chaque bonne idée trouve le chemin de ceux qui peuvent la soutenir."],
+["Le problème","Beaucoup de porteurs peinent à atteindre des financeurs, et les financeurs à découvrir des projets adaptés."],
+["Rôle des porteurs de projets","Présenter leurs projets avec clarté et honnêteté."],
+["Rôle des financeurs","Étudier les projets et décider par eux-mêmes."],
+["Nos valeurs","Confiance, transparence et clarté sur ce qui est réellement disponible."],
+["Notre ambition","Contribuer au développement des projets en Mauritanie. La plateforme est en cours de développement et ses services ne sont pas encore opérationnels."]]},
+privacy:{t:"Politique de confidentialité",l:"Projet de texte à adapter.",d:"Ce texte est un projet : à faire vérifier et adapter juridiquement avant publication.",b:[
+["Aucune collecte de données","Dans sa version actuelle, le site ne contient ni formulaire, ni compte, ni outil de suivi. Seul votre choix de langue est conservé dans votre navigateur."],
+["Services futurs","Si des services collectant des données sont ajoutés, ce texte sera mis à jour au préalable."],
+["Polices externes","Le site charge la police Tajawal depuis Google Fonts ; son fournisseur peut recevoir votre adresse IP."],
+["Vos droits","Les modalités d’exercice de vos droits seront précisées lorsqu’un moyen de contact officiel sera retenu."]]},
+terms:{t:"Conditions d’utilisation",l:"Projet de texte à adapter.",d:"Ce texte est un projet : à faire vérifier et adapter juridiquement avant publication.",b:[
+["Nature du site","Le site est purement informatif ; il ne fournit ni financement, ni intermédiation financière, ni conseil."],
+["Aucune garantie","Nous ne garantissons ni financement, ni rendement, ni résultat. Chaque décision relève de son auteur."],
+["Vérification","L’utilisateur doit vérifier toute information avant tout engagement."],
+["Contenu illustratif","Les exemples du site sont illustratifs et ne sont pas des projets réels."],
+["Modifications","Ces conditions peuvent évoluer avec la plateforme."]]}
+}},
+en:{
+brand:"Meweli",skip:"Skip to content",
+n:["Home","Project Owner","Funder","About","Our Team","Contact"],
+o:"I am a Project Owner",f:"I am a Funder",back:"Back to home",toF:"Funder page",toO:"Project Owner page",ill:"Illustrative example",more:"Learn more",
+rights:"© 2026 Meweli. All rights reserved.",quick:"Links",legal:"Legal",priv:"Privacy Policy",terms:"Terms of Use",
+foot:"A Mauritanian platform in development, connecting project owners with funders.",
+title:{home:"Meweli | Connecting Project Owners with Funders",owner:"Project Owner | Meweli",funder:"Funder | Meweli",about:"About | Meweli",team:"Our Team | Meweli",contact:"Contact | Meweli",privacy:"Privacy Policy | Meweli",terms:"Terms of Use | Meweli"},
+hero:["Meweli — Connecting Project Owners with Funders","Meweli is a Mauritanian digital platform in development. It aims to help project owners meet interested funders, and help funders discover projects worth their attention.","Project in development"],
+ps:["Good ideas waiting for funding","The problem","Project owners struggle to reach the right funders.",["Few channels to showcase emerging projects.","Hard to present a project and its needs clearly.","No shared space for both sides."],"The Meweli solution","A space that makes discovery and introductions easier.",["A clear presentation of the project and its goals.","Easier discovery of projects for funders.","A way to get in touch; any agreement stays between the parties."]],
+how:["How does Meweli work?","A simple path from idea to introduction.",[["The owner presents the project","They explain the idea, goals and funding needs."],["The funder discovers projects","They review the projects shown and assess them independently."],["Introduction and dialogue","The parties can talk; any agreement is made directly between them."]]],
+cats:["Two types of users",["Project Owner","For anyone with an idea or project looking for potential funders."],["Funder","For individuals or organizations who want to discover projects and consider funding them."]],
+ex:["Examples of project types","These cards are imaginary, only to explain the idea. They are not real projects.",[["Education","Learning support initiative","An idea to help pupils learn with simple tools."],["Technology","Local service app","A tech idea that simplifies an everyday service."],["Social","Community solidarity initiative","An idea serving a part of the community."]]],
+tr:["Trust and transparency","We want to build a platform people can trust.",[["Clarity","We state plainly what is available and what is not yet."],["No guaranteed promises","No promise of funding, returns or specific outcomes."],["Verification","We encourage everyone to verify information before any commitment."]]],
+team:"Our Team",
+contact:["Contact","Official contact details will be published here as soon as they are available.","No contact details have been added yet. They will be published on this page when available."],
+pg:{
+owner:{t:"Project Owner space",l:"For anyone with an idea or project who wants to present it to potential funders.",b:[
+["The role of the project owner","They present their idea or project and explain goals and needs honestly and clearly."],
+["Potential benefits",["A space to showcase the project.","A chance to reach interested funders.","An opportunity to structure the presentation."]],
+["Steps to prepare a project",["Define the problem the project solves.","Describe the solution and target audience.","Estimate financial needs and timeline.","Write a clear, concise summary."]],
+["Tips for presenting an idea",["Start with one sentence summarizing the idea.","Use simple language and concrete examples.","Be honest about risks and challenges."]],
+["Explaining goals and financial needs",["State the amount sought and how it will be used.","Outline stages and expected results.","Avoid overstating projections."]],
+["Illustrative example (not a real project)","An educational initiative seeking seed funding to create learning content, with a detailed budget and stages."],
+["FAQ",{f:[["Does Meweli guarantee funding?","No. The platform facilitates introductions and guarantees no funding."],["Can I log in or create an account?","No. There are no accounts or sign-ups at this stage."]]}]]},
+funder:{t:"Funder space",l:"For individuals or organizations who want to discover projects and consider funding them.",b:[
+["The role of the funder","They discover projects and freely decide whether to support them."],
+["Meweli’s mission","To make discovery and introductions between project owners and funders easier."],
+["Potential benefits",["Discover varied Mauritanian projects.","Better understand project goals and needs.","Talk directly with project owners."]],
+["Tips for analyzing a project",["Understand the problem and proposed solution.","Examine the budget and stages carefully.","Assess the team’s experience and ability to deliver.","Ask for clarification before any decision."]],
+["Transparency and verification","Always verify information and documents yourself before any commitment. Meweli does not vet projects on your behalf."],
+["Illustrative example (not a real project)","A local app seeking support for a prototype, with a clear plan of stages."],
+["FAQ",{f:[["Does Meweli guarantee returns?","No. There is no promise of returns or profit; each decision is the decision-maker’s responsibility."],["Can money be transferred through the site?","No. The site offers no payments or transfers."]]}]]},
+about:{t:"About Meweli",l:"Learn about Meweli and its mission.",b:[
+["Mission","To connect project owners with interested funders in Mauritania."],
+["Vision","For every good idea to find its way to those who can support it."],
+["The problem","Many project owners struggle to reach funders, and funders struggle to discover suitable projects."],
+["Role of project owners","To present their projects clearly and honestly."],
+["Role of funders","To study projects and make their own decisions."],
+["Our values","Trust, transparency, and clarity about what is actually available."],
+["Our ambition","To contribute to the development of projects in Mauritania. The platform is in development and its services are not yet operational."]]},
+privacy:{t:"Privacy Policy",l:"Draft text to be adapted.",d:"This text is a draft: have it reviewed and adapted legally before publication.",b:[
+["No data collection","In its current form the site has no forms, accounts or tracking tools. Only your language choice is stored in your browser."],
+["Future services","If data-collecting services are added, this text will be updated first."],
+["External fonts","The site loads the Tajawal font from Google Fonts; its provider may receive your IP address."],
+["Your rights","How to exercise your rights will be specified once an official contact channel is chosen."]]},
+terms:{t:"Terms of Use",l:"Draft text to be adapted.",d:"This text is a draft: have it reviewed and adapted legally before publication.",b:[
+["Nature of the site","The site is informational only; it provides no financing, financial brokerage or advice."],
+["No guarantees","We guarantee no funding, returns or outcomes. Each decision is its maker’s responsibility."],
+["Verification","Users must verify any information before any commitment."],
+["Illustrative content","Examples on the site are illustrative and not real projects."],
+["Changes","These terms may change as the platform evolves."]]}
+}}};
 
-  // Membres de l'équipe, à renseigner depuis le cahier des charges.
-  // Exemple : { name: "الاسم", role: "الدور" }
-  TEAM: []
-};
+/* ====== MOTEUR ====== */
+const $=s=>document.querySelector(s);
+const ROUTES=["home","owner","funder","about","team","contact","privacy","terms"];
+const NAV=["home","owner","funder","about","team","contact"];
+let lang=localStorage.getItem("mw_lang");if(!D[lang])lang="ar";
+const route=()=>{const r=location.hash.replace(/^#\/?/,"");return ROUTES.includes(r)?r:"home"};
+const a=(r,txt,cls="btn bp")=>`<a class="${cls}" href="#/${r}">${txt}</a>`;
+const ul=l=>`<ul>${l.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+const user=(t,p,r)=>`<article class="card"><h3>${t}</h3><p>${p}</p></article>`;
+const avatar=`<div class="av" aria-hidden="true"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#13B981" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>`;
+const teamCards=()=>`<div class="g">${TEAM.map(m=>`<article class="card tm">${avatar}<h3>${m[0]}</h3><p class="la" lang="en">${m[1]}</p></article>`).join("")}</div>`;
+const head=(t,l)=>`<div class="sh"><h2>${t}</h2>${l?`<p class="lead">${l}</p>`:""}</div>`;
+const contactBox=T=>CONFIG.CONTACT.length?`<div class="g">${CONFIG.CONTACT.map(c=>`<article class="card"><h3>${c.label}</h3><p><a href="${c.href}">${c.text}</a></p></article>`).join("")}</div>`:`<div class="empty">${T.contact[2]}</div>`;
 
-/* ==========================================================
-   Utilitaires
-   ========================================================== */
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-
-/* ---------- Menu mobile ---------- */
-const menuToggle = $('#menuToggle');
-const navLinks = $('#navLinks');
-function setMenu(open){
-  navLinks.classList.toggle('open', open);
-  menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+function home(T){
+  const[h,p,b]=T.hero,s=T.ps,hw=T.how,c=T.cats,e=T.ex,t=T.tr;
+  return `<section class="hero"><div class="c"><span class="badge">${b}</span><h1>${h}</h1><p>${p}</p>
+  <div class="acts">${a("owner",T.o)}${a("funder",T.f,"btn bo")}</div></div></section>
+  <section><div class="c">${head(s[0])}<div class="g">
+   <article class="card pr"><h3>${s[1]}</h3><p>${s[2]}</p>${ul(s[3])}</article>
+   <article class="card so"><h3>${s[4]}</h3><p>${s[5]}</p>${ul(s[6])}</article></div></div></section>
+  <section class="alt"><div class="c">${head(hw[0],hw[1])}<div class="g">${hw[2].map((x,i)=>`<article class="card"><div class="num">${i+1}</div><h3>${x[0]}</h3><p>${x[1]}</p></article>`).join("")}</div></div></section>
+  <section><div class="c">${head(c[0])}<div class="g">
+   <article class="card"><h3>${c[1][0]}</h3><p>${c[1][1]}</p><div class="acts" style="margin-top:16px">${a("owner",T.more,"btn bd")}</div></article>
+   <article class="card"><h3>${c[2][0]}</h3><p>${c[2][1]}</p><div class="acts" style="margin-top:16px">${a("funder",T.more,"btn bd")}</div></article></div></div></section>
+  <section class="alt"><div class="c">${head(e[0])}<div class="g">${e[2].map(x=>`<article class="card"><span class="tag">${T.ill}</span><span class="cat">${x[0]}</span><h3>${x[1]}</h3><p>${x[2]}</p></article>`).join("")}</div><p class="note">${e[1]}</p></div></section>
+  <section><div class="c">${head(t[0],t[1])}<div class="g">${t[2].map(x=>`<article class="card"><h3>${x[0]}</h3><p>${x[1]}</p></article>`).join("")}</div></div></section>
+  <section class="alt"><div class="c">${head(T.team)}${teamCards()}<div class="acts" style="justify-content:center;margin-top:28px">${a("team",T.n[4],"btn bd")}</div></div></section>
+  <section><div class="c">${head(T.contact[0],T.contact[1])}${contactBox(T)}</div></section>`;
 }
-menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
-$$('#navLinks a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
-
-/* ---------- Lien actif au défilement ---------- */
-const sections = $$('main section[id]');
-const links = $$('#navLinks a[href^="#"]');
-if ('IntersectionObserver' in window){
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting){
-        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + en.target.id));
-      }
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  sections.forEach(s => spy.observe(s));
-
-  /* Apparition douce */
-  const rev = new IntersectionObserver(entries => {
-    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('visible'); rev.unobserve(en.target); } });
-  }, { threshold: .12 });
-  $$('.reveal').forEach(el => rev.observe(el));
-} else {
-  $$('.reveal').forEach(el => el.classList.add('visible'));
+function page(T,k){
+  const p=T.pg[k];
+  const blocks=p.b.map(([h,c])=>`<h2>${h}</h2>`+(typeof c==="string"?`<p>${c}</p>`:Array.isArray(c)?ul(c):c.f.map(q=>`<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join(""))).join("");
+  const other=k==="owner"?a("funder",T.toF,"btn bd"):k==="funder"?a("owner",T.toO,"btn bd"):"";
+  return `<div class="ph"><div class="c"><h1>${p.t}</h1><p>${p.l}</p></div></div>
+  <section><div class="c txt">${p.d?`<div class="draft">${p.d}</div>`:""}${blocks}
+  <div class="after">${a("home",T.back)}${other}</div></div></section>`;
 }
-
-/* ---------- Boutons du hero : pré-sélection du profil ---------- */
-$$('[data-profile]').forEach(btn => {
-  btn.addEventListener('click', () => { $('#profile').value = btn.dataset.profile; });
-});
-
-/* ---------- Politique de confidentialité ---------- */
-const dlg = $('#privacyDialog');
-$$('[data-open-privacy]').forEach(b => b.addEventListener('click', () => {
-  if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
-}));
-$('#closePrivacy').addEventListener('click', () => dlg.close());
-dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
-
-/* ---------- Équipe (aucun membre inventé) ---------- */
-(function renderTeam(){
-  const mount = $('#teamMount');
-  if (!CONFIG.TEAM.length){
-    mount.innerHTML = '<div class="team-empty reveal visible"><p>سيتم الإعلان عن أعضاء الفريق وأدوارهم قريبًا.</p></div>';
-    return;
-  }
-  const grid = document.createElement('div');
-  grid.className = 'grid grid-3';
-  CONFIG.TEAM.forEach(m => {
-    const card = document.createElement('article');
-    card.className = 'card team-card';
-    const av = document.createElement('div'); av.className = 'avatar'; av.setAttribute('aria-hidden', 'true');
-    av.textContent = (m.name || '?').trim().charAt(0);
-    const h = document.createElement('h3'); h.textContent = m.name;
-    const r = document.createElement('p'); r.className = 'team-role'; r.textContent = m.role;
-    card.append(av, h, r); grid.append(card);
-  });
-  mount.append(grid);
-})();
-
-/* ---------- Contact officiel (affiché seulement s'il existe) ---------- */
-(function renderContact(){
-  if (!CONFIG.CONTACT) return;
-  const li = $('#contactItem');
-  const a = document.createElement('a');
-  a.href = CONFIG.CONTACT.href;
-  a.textContent = CONFIG.CONTACT.label + ': ' + CONFIG.CONTACT.text;
-  li.append(a); li.hidden = false;
-})();
-
-/* ==========================================================
-   Formulaire de préinscription
-   ========================================================== */
-const form = $('#signupForm');
-const submitBtn = $('#submitBtn');
-const statusBox = $('#formStatus');
-let submitting = false;
-
-function setError(id, msg){
-  const input = $('#' + id);
-  const box = $('#err-' + id);
-  box.textContent = msg || '';
-  if (input) input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+function simple(T,k){
+  const body=k==="team"?teamCards():contactBox(T);
+  const t=k==="team"?T.team:T.contact[0],l=k==="contact"?T.contact[1]:"";
+  return `<div class="ph"><div class="c"><h1>${t}</h1>${l?`<p>${l}</p>`:""}</div></div><section><div class="c">${body}<div class="after">${a("home",T.back)}</div></div></section>`;
 }
-function showStatus(type, msg){
-  statusBox.className = 'form-status show ' + type;
-  statusBox.textContent = msg;
+function render(){
+  const T=D[lang],r=route();
+  document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+  document.title=T.title[r];
+  $("#brand").textContent=T.brand;$("#skip").textContent=T.skip;
+  $("#nav").innerHTML=`<ul class="links" id="navul">${NAV.map((k,i)=>`<li><a href="#/${k}"${k===r?' class="on" aria-current="page"':""}>${T.n[i]}</a></li>`).join("")}</ul>`;
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("#main").innerHTML=r==="home"?home(T):r==="team"||r==="contact"?simple(T,r):page(T,r);
+  $("#foot").innerHTML=`<div class="c"><div class="fg"><div><a href="#/home" class="logo"><span class="lm" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#13B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48V18l20 22 20-22v30"/></svg></span>${T.brand}</a><p>${T.foot}</p></div>
+  <div><h3>${T.quick}</h3><ul>${NAV.map((k,i)=>`<li><a href="#/${k}">${T.n[i]}</a></li>`).join("")}</ul></div>
+  <div><h3>${T.legal}</h3><ul><li><a href="#/privacy">${T.priv}</a></li><li><a href="#/terms">${T.terms}</a></li></ul></div></div><p class="cp">${T.rights}</p></div>`;
+  $("#mt").setAttribute("aria-label",T.n[0]);
 }
-function validate(){
-  let ok = true;
-  const name = $('#fullName').value.trim();
-  const email = $('#email').value.trim();
-  const phone = $('#phone').value.trim();
-
-  if (name.length < 2){ setError('fullName', 'يرجى إدخال اسمك الكامل (حرفان على الأقل).'); ok = false; }
-  else setError('fullName', '');
-
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){
-    setError('email', 'صيغة البريد الإلكتروني غير صحيحة، مثال: name@example.com'); ok = false;
-  } else setError('email', '');
-
-  const digits = phone.replace(/\D/g, '');
-  if (phone && (!/^[+\d\s()-]+$/.test(phone) || digits.length < 8 || digits.length > 15)){
-    setError('phone', 'رقم الهاتف غير صحيح، يرجى إدخال من 8 إلى 15 رقمًا.'); ok = false;
-  } else setError('phone', '');
-
-  if (!$('#consent').checked){
-    setError('consent', 'يجب الموافقة على سياسة الخصوصية للمتابعة.'); ok = false;
-  } else setError('consent', '');
-
-  if (!ok){
-    const firstBad = $('[aria-invalid="true"]', form);
-    if (firstBad) firstBad.focus();
-  }
-  return ok;
-}
-
-form.addEventListener('submit', async e => {
-  e.preventDefault();
-  if (submitting) return;                       // empêche les doubles soumissions
-  statusBox.className = 'form-status';
-  if (!validate()) return;
-
-  // Anti-spam : un robot remplit le champ caché. On ignore silencieusement.
-  if ($('#website').value) return;
-
-  // Aucune destination configurée : on ne prétend JAMAIS avoir enregistré.
-  if (!CONFIG.FORM_ENDPOINT){
-    showStatus('err', 'خدمة التسجيل غير مفعّلة بعد، ولم يتم حفظ بياناتك. يرجى المحاولة لاحقًا.');
-    return;
-  }
-
-  submitting = true;
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'جارٍ الإرسال...';
-
-  const payload = {
-    full_name: $('#fullName').value.trim(),
-    email: $('#email').value.trim(),
-    phone: $('#phone').value.trim(),
-    city: $('#city').value.trim(),
-    profile: $('#profile').value,
-    message: $('#message').value.trim(),
-    consent: true,
-    submitted_at: new Date().toISOString()
-  };
-
-  try{
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 15000);
-    const res = await fetch(CONFIG.FORM_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload),
-      signal: ctrl.signal
-    });
-    clearTimeout(timer);
-
-    if (!res.ok) throw new Error('HTTP ' + res.status);   // succès uniquement si le service confirme
-
-    form.reset();
-    showStatus('ok', 'تم تسجيل اهتمامك بنجاح. شكرًا لك، وسنتواصل معك عند توفر مستجدات.');
-  } catch (err){
-    showStatus('err', 'تعذّر إرسال التسجيل ولم يتم حفظ بياناتك. تحقق من اتصالك بالإنترنت وأعد المحاولة.');
-  } finally {
-    submitting = false;
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'إرسال التسجيل';
-  }
-});
-
-/* Effacer l'erreur dès que l'utilisateur corrige */
-['fullName','email','phone'].forEach(id => $('#' + id).addEventListener('input', () => setError(id, '')));
-$('#consent').addEventListener('change', () => setError('consent', ''));
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.l;localStorage.setItem("mw_lang",lang);render()}));
+$("#mt").addEventListener("click",()=>{const o=$("#navul").classList.toggle("open");$("#mt").setAttribute("aria-expanded",o)});
+document.addEventListener("click",e=>{if(e.target.closest("#navul a")){$("#navul").classList.remove("open");$("#mt").setAttribute("aria-expanded","false")}});
+window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0);$("#main").focus({preventScroll:true})});
+try{lang=localStorage.getItem("mw_lang")||lang}catch(e){}
+render();
 </script>
 </body>
 </html>
