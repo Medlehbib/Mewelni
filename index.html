@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#102A43">
 <meta property="og:type" content="website">
 <meta property="og:title" content="مولني | Meweli">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23102A43'/%3E%3Cpath d='M16 46V20l16 18 16-18v26' fill='none' stroke='%2313B981' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/jpeg" href="logo.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -29,6 +29,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdr
 .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:70px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.35rem;color:var(--navy)}
 .lm{width:40px;height:40px;border-radius:12px;background:var(--navy);display:grid;place-items:center}
+.logo-img{width:44px;height:44px;object-fit:contain;border-radius:10px;display:block;flex-shrink:0}
 .links{display:flex;gap:4px}
 .links a{padding:8px 12px;border-radius:10px;font-weight:500}.links a:hover{background:var(--gray)}
 .links a.on{color:var(--gd);font-weight:700}
@@ -81,7 +82,10 @@ main{animation:in .45s ease}@keyframes in{from{opacity:0;transform:translateY(12
 <body>
 <a class="skip" href="#main" id="skip"></a>
 <header><div class="c nav">
-  <a href="logo.jpeg" class="logo" aria-label="Meweli"><span class="lm" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#13B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48V18l20 22 20-22v30"/></svg></span><span id="brand"></span></a>
+  <a href="#/home" class="logo" aria-label="Meweli">
+    <img src="logo.jpeg" alt="Logo Meweli" class="logo-img">
+    <span id="brand"></span>
+  </a>
   <nav id="nav" aria-label="Main"></nav>
   <div class="tools">
     <div class="lang" role="group" aria-label="Language"><button data-l="ar">AR</button><button data-l="fr">FR</button><button data-l="en">EN</button></div>
@@ -306,7 +310,7 @@ function render(){
   $("#nav").innerHTML=`<ul class="links" id="navul">${NAV.map((k,i)=>`<li><a href="#/${k}"${k===r?' class="on" aria-current="page"':""}>${T.n[i]}</a></li>`).join("")}</ul>`;
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
   $("#main").innerHTML=r==="home"?home(T):r==="team"||r==="contact"?simple(T,r):page(T,r);
-  $("#foot").innerHTML=`<div class="c"><div class="fg"><div><a href="#/home" class="logo"><span class="lm" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="#13B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 48V18l20 22 20-22v30"/></svg></span>${T.brand}</a><p>${T.foot}</p></div>
+  $("#foot").innerHTML=`<div class="c"><div class="fg"><div><a href="#/home" class="logo"><img src="logo.jpeg" alt="Logo Meweli" class="logo-img"><span>${T.brand}</span></a><p>${T.foot}</p></div>
   <div><h3>${T.quick}</h3><ul>${NAV.map((k,i)=>`<li><a href="#/${k}">${T.n[i]}</a></li>`).join("")}</ul></div>
   <div><h3>${T.legal}</h3><ul><li><a href="#/privacy">${T.priv}</a></li><li><a href="#/terms">${T.terms}</a></li></ul></div></div><p class="cp">${T.rights}</p></div>`;
   $("#mt").setAttribute("aria-label",T.n[0]);
